@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ardhi A. Pradhana - Your Strategic CFO Partner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Color Variables */
+        :root {
+            --navy: #1a2332;
+            --gold: #f4a261;
+            --light-navy: #2c3e50;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-gray: #6c757d;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(244,162,97,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: #e09f5c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(244, 162, 97, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--gold);
+            box-shadow: 0 20px 40px rgba(26, 35, 50, 0.1);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        /* Where I Plug In Section */
+        .plug-in {
+            background: var(--white);
+        }
+
+        .plug-in-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .plug-in-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(26, 35, 50, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--gold);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(26, 35, 50, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* What I Help With Section */
+        .help-with {
+            background: var(--white);
+        }
+
+        .help-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .step-card ul {
+            list-style: none;
+            color: var(--text-gray);
+        }
+
+        .step-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .step-card li::before {
+            content: '•';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Insights Section */
+        .insights {
+            background: var(--light-gray);
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .insight-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(26, 35, 50, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .insight-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+
+        .insight-meta {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .contact-card p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-card .btn {
+            width: 100%;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll Offset for Fixed Nav */
+        .section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Ardhi A. Pradhana</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#approach">My Approach</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Your Strategic CFO Partner</h1>
+            <div class="hero-subtitle">Turning Financial Complexity Into Strategic Clarity</div>
+            <p class="hero-description">
+                With 15+ years of finance experience across startups and multinationals, I help businesses move with financial clarity, without the full-time cost or complexity.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book a Strategic Session</a>
+                <a href="#approach" class="btn btn-secondary">Learn My Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/300x300/1a2332/f4a261?text=Ardhi+A.+Pradhana" alt="Ardhi A. Pradhana">
+                </div>
+                <div class="about-text">
+                    <h3>Hi, I'm Ardhi.</h3>
+                    <p>
+                        Over my 15+ years in finance with both global giants and startups, I've transformed complex numbers into insights that move businesses forward—from leading 14 entities, 50+ clinics or managing $90M+ in M&A deals.
+                    </p>
+                    <p>
+                        Think of me as the finance guy you'd genuinely enjoy talking to, a trusted partner who helps you spot challenges early, makes decisions simpler, and keeps you confidently in control without getting lost in spreadsheets.
+                    </p>
+                    <p>
+                        Recently, I've launched MontPro, offering thoughtful AI solutions for finance, marketing, and talent needs. If you're building something meaningful and want a fresh perspective on your financial landscape, I'd love to connect!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where I Plug In Section -->
+    <section id="approach" class="section plug-in">
+        <div class="container">
+            <h2 class="section-title">Where I Plug In...</h2>
+            <div class="plug-in-content">
+                <p>
+                    <strong>Do you really need a full-time finance leader or just better financial decisions?</strong>
+                </p>
+                <p>
+                    If you're second-guessing your numbers, unsure how much runway you actually have, or spending more time inside reports than running your business; it's time to rethink on what you need for your finance leadership.
+                </p>
+                <p>
+                    With 15+ years in multinationals and startups, I help businesses move with financial clarity, without the full-time cost or complexity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="section-title">How to Work with Me</h2>
+            <p class="section-subtitle">No complicated contracts. Just the right financial help.</p>
+            <p style="text-align: center; margin-bottom: 3rem; color: var(--text-gray);">
+                I work with businesses who want clarity, fast. You can start small or go deep, depending on what you need.
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🕓</div>
+                    <h3>On-Demand Strategic CFO Partner</h3>
+                    <p>Need a model reviewed, investor deck cleaned up, or just want to talk through your cashflow?</p>
+                    <p>Pick a time that works for you.</p>
+                    <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book a Session</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📅</div>
+                    <h3>Monthly Retainer</h3>
+                    <p>For businesses that need recurring support without hiring full-time.</p>
+                    <p>We'll lock in a weekly slot and tailor the support to what your business needs right now.</p>
+                    <a href="mailto:ardhi@aapgrp.com" class="btn btn-primary">Email me to discuss retainer options</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>Free Intro Call</h3>
+                    <p>Not sure what you need yet? That's completely fine.</p>
+                    <p>Sometimes you just need to talk things out. I offer a free intro call; no prep needed, no pressure.</p>
+                    <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book a Free Intro Call</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Help With Section -->
+    <section id="help-with" class="section help-with">
+        <div class="container">
+            <h2 class="section-title">What I Help With</h2>
+            <p class="section-subtitle">Before we plan, we clean. Then we build.</p>
+            <p style="text-align: center; margin-bottom: 3rem; color: var(--text-gray);">
+                My work usually starts with fixing what's broken and ends with helping you scale smarter. Here's how that journey often looks:
+            </p>
+            
+            <div class="help-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>🧮 Fix the Foundations</h3>
+                    <ul>
+                        <li>Clean up and standardize your financial reports</li>
+                        <li>Rebuild the structure so numbers reflect reality</li>
+                        <li>Align your reporting with how the business actually runs</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>📊 Find the Truth in the Numbers</h3>
+                    <ul>
+                        <li>Analyze your performance using meaningful ratios and trends</li>
+                        <li>Spot red flags, gaps, or silent leaks</li>
+                        <li>Turn messy numbers into clear insights</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>🧭 Plan the Next Step</h3>
+                    <ul>
+                        <li>Build budgets, forecasts, and models you can actually use</li>
+                        <li>Sharpen your roadmap with metrics that matter</li>
+                        <li>Support your investor conversations with clarity and confidence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="section insights">
+        <div class="container">
+            <h2 class="section-title">My Writings</h2>
+            <p class="section-subtitle">Finance isn't one-off. It's a rhythm.</p>
+            <p style="text-align: center; margin-bottom: 3rem; color: var(--text-gray);">
+                Whether we're working together or not, you can tap into the way I think, plan, and advise; every week. Here's where I share practical insights that help you lead with financial clarity:
+            </p>
+            
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h4>Recap: The Working Capital Week</h4>
+                    <div class="insight-meta">May 8, 2025 • LinkedIn</div>
+                    <p>They had sales. They had traction. But forgot that cash has a schedule.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>The Quiet ESG Revolution That's Redefining Investment Success</h4>
+                    <div class="insight-meta">LinkedIn</div>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>Your revenue can be skyrocketing, and still leave you broke.</h4>
+                    <div class="insight-meta">LinkedIn</div>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>Number-Driven or Number-Blind? The Startup Metrics That Determine Your Future</h4>
+                    <div class="insight-meta">May 9, 2025 • Newsletter</div>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>Master the Game: Working Capital as Your Startup's Secret Weapon</h4>
+                    <div class="insight-meta">Newsletter</div>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>Post-Due Diligence: Mastering the Integration Marathon</h4>
+                    <div class="insight-meta">Newsletter</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-primary" target="_blank">See My LinkedIn Posts</a>
+                <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7313159212807659520" class="btn btn-secondary" target="_blank">Subscribe to My Newsletter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Next Steps</h2>
+            <p style="text-align: center; margin-bottom: 3rem; color: rgba(255, 255, 255, 0.8);">
+                If you read this, here's exactly what to do next.
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📅 Book a Session</h3>
+                    <p>Ready to discuss your financial needs? Let's schedule a strategic session.</p>
+                    <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book Now</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>📩 Email Me</h3>
+                    <p>Have questions or want to discuss retainer options? Send me a message.</p>
+                    <a href="mailto:ardhi@aapgrp.com" class="btn btn-primary">Send Email</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>🔗 Connect on LinkedIn</h3>
+                    <p>Follow my insights and connect with me on LinkedIn for regular updates.</p>
+                    <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-primary" target="_blank">Connect</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>📢 Join My Telegram</h3>
+                    <p>Get exclusive insights delivered directly to your Telegram.</p>
+                    <a href="https://t.me/+a8kYqCEZuHk3NjM1" class="btn btn-primary" target="_blank">Join Channel</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">
+                    Because clarity isn't a one-time fix, it's a continuous development.
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.8);">
+                    Whether you're ready to talk or exploring, feel free to reach out. I read every message.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(26, 35, 50, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(26, 35, 50, 0.95)';
+            }
+        });
+
+        // Add fade-in animation to sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Hero section is always visible
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
+    </script>
+</body>
+</html>
