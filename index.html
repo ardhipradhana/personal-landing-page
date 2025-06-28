@@ -269,6 +269,9 @@
             box-shadow: 0 10px 30px rgba(26, 35, 50, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-top: 4px solid var(--gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .service-card:hover {
@@ -472,6 +475,20 @@
         .section {
             scroll-margin-top: 80px;
         }
+
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+        }
     </style>
 </head>
 <body>
@@ -518,7 +535,7 @@
                         Over my 15+ years in finance with both global giants and startups, I've transformed complex numbers into insights that move businesses forward—from leading 14-entity operations across 50+ locations to managing $90M+ in M&A deals.
                     </p>
                     <p>
-                        Think of me as the finance guy you'd genuinely enjoy talking to. I'm a trusted partner who helps you spot challenges early, makes decisions simpler, and keeps you confidently in control without getting lost in spreadsheets.
+                        Think of me as the finance guy you'd genuinely enjoy talking to. I'm a trusted partner who helps you spot challenges early, makes decisions simpler, and keeps you confidently in control without getting lost in your numbers.
                     </p>
                     <p>
                         If you're building something meaningful and want a fresh perspective on your financial landscape, I'd love to connect and show you what's possible when the right strategic mind meets your ambition.
@@ -557,7 +574,7 @@
                             <polyline points="12,6 12,12 16,14"/>
                         </svg>
                     </div>
-                    <h3>Strategic Session</h3>
+                    <h3>On-Demand Session</h3>
                     <p>Get immediate clarity on your most pressing financial decision. Perfect for model reviews, investor deck optimization, or strategic planning challenges.</p>
                     <p><strong>One focused session, maximum impact.</strong></p>
                     <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book a Session</a>
@@ -571,7 +588,7 @@
                             <path d="m9 14 2 2 4-4"/>
                         </svg>
                     </div>
-                    <h3>Monthly Partnership</h3>
+                    <h3>Monthly Retainer</h3>
                     <p>Ongoing strategic guidance tailored to your business needs. Weekly dedicated time for financial planning, analysis, and advisory without the full-time commitment.</p>
                     <p><strong>Consistent CFO-level support, flexible engagement.</strong></p>
                     <a href="mailto:ardhi@aapgrp.com?subject=Monthly Partnership Inquiry" class="btn btn-primary">Discuss Partnership</a>
@@ -581,7 +598,6 @@
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
-                            <circle cx="12" cy="10" r="3"/>
                         </svg>
                     </div>
                     <h3>Discovery Call</h3>
@@ -605,7 +621,15 @@
             <div class="help-steps">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h3>🧮 Fix the Foundations</h3>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="9" y1="9" x2="15" y2="9"/>
+                            <line x1="9" y1="13" x2="15" y2="13"/>
+                            <line x1="9" y1="17" x2="13" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>Fix the Foundations</h3>
                     <ul>
                         <li>Clean up and standardize your financial reports</li>
                         <li>Rebuild the structure so numbers reflect reality</li>
@@ -615,7 +639,14 @@
                 
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h3>📊 Find the Truth in the Numbers</h3>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="18" y1="20" x2="18" y2="10"/>
+                            <line x1="12" y1="20" x2="12" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="14"/>
+                        </svg>
+                    </div>
+                    <h3>Find the Truth in the Numbers</h3>
                     <ul>
                         <li>Analyze your performance using meaningful ratios and trends</li>
                         <li>Spot red flags, gaps, or silent leaks</li>
@@ -625,7 +656,12 @@
                 
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h3>🧭 Plan the Next Step</h3>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="3,11 22,2 13,21 11,13 3,11"/>
+                        </svg>
+                    </div>
+                    <h3>Plan the Next Step</h3>
                     <ul>
                         <li>Build budgets, forecasts, and models you can actually use</li>
                         <li>Sharpen your roadmap with metrics that matter</li>
