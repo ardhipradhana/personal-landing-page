@@ -263,8 +263,9 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+            align-items: stretch; /* Add this */
         }
-
+        
         .service-card {
             background: var(--white);
             padding: 2.5rem;
@@ -275,6 +276,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 100%; /* Add this */
         }
 
         .service-card:hover {
@@ -584,8 +586,12 @@
         }
         
         .popular-badge::before {
-            content: "⭐";
-            font-size: 0.9rem;
+            content: "";
+            width: 16px;
+            height: 16px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            flex-shrink: 0;
         }
         
         .service-card.featured:hover {
