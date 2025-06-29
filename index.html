@@ -625,6 +625,282 @@
         .service-card.featured h3 {
             color: var(--gold);
         }
+
+        /* Proven Results Section */
+        .proven-results {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        .proven-results .section-title {
+            color: var(--white);
+        }
+        
+        .proven-results .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .result-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .result-card:hover::before {
+            left: 100%;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .result-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .result-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--navy);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .result-percentage {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .result-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            display: inline;
+        }
+        
+        .result-unit {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #f7d154);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 2s ease-in-out;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 20px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-20px); }
+            100% { transform: translateX(20px); }
+        }
+        
+        .result-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+        
+        .result-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .result-context {
+            display: inline-block;
+            background: rgba(218, 165, 32, 0.2);
+            color: var(--gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--light-gray);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(26, 35, 50, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(26, 35, 50, 0.15);
+        }
+        
+        .quote-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .quote-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--navy);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            border-top: 2px solid var(--light-gray);
+            padding-top: 1.5rem;
+        }
+        
+        .testimonial-author strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+        
+        .testimonial-author span {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        /* Animation for progress bars on scroll */
+        .result-card.animate .progress-fill[data-percentage="18"] {
+            width: 18%;
+        }
+        
+        .result-card.animate .progress-fill[data-percentage="13"] {
+            width: 13%;
+        }
+        
+        .result-card.animate .progress-fill[data-percentage="90"] {
+            width: 90%;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .result-card {
+                padding: 2rem;
+            }
+            
+            .testimonial-card {
+                padding: 2rem;
+            }
+            
+            .result-percentage,
+            .result-number {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -824,6 +1100,119 @@
         </div>
     </section>
 
+    <!-- Proven Results Section -->
+    <section id="proven-results" class="section proven-results">
+        <div class="container">
+            <h2 class="section-title">Proven Results</h2>
+            <p class="section-subtitle">Real outcomes from real partnerships. Here's the measurable impact we've achieved together.</p>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="result-percentage">18%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-percentage="18"></div>
+                    </div>
+                    <h3>Cost Efficiency</h3>
+                    <p>Delivering the same performance with optimized spending</p>
+                    <span class="result-context">SaaS Startup</span>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3v18h18"/>
+                            <path d="M7 12l3-3 4 4 5-5"/>
+                            <path d="M17 8h4v4"/>
+                        </svg>
+                    </div>
+                    <div class="result-percentage">13%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-percentage="13"></div>
+                    </div>
+                    <h3>Increased Gross Margin</h3>
+                    <p>Generating higher margins through strategic optimization</p>
+                    <span class="result-context">Multi-location Retail</span>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                    </div>
+                    <div class="result-number">14</div>
+                    <div class="result-unit">months</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-percentage="90"></div>
+                    </div>
+                    <h3>Extended Runway</h3>
+                    <p>Reduced cash burn through improved financial management</p>
+                    <span class="result-context">Tech Startup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Success Stories</h2>
+            <p class="section-subtitle">Here's what partners say about working together to transform their financial strategy.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Working with Pak Ardhi has been a pleasure. He has a remarkable ability to see the bigger picture of a company, offering valuable insights and recommendations to ensure its financial health. His expertise and thoughtful approach have been instrumental in guiding Digital Skola. Pak Ardhi is not only highly knowledgeable but also exceptionally personable, making him a trusted advisor who truly values and supports his clients."</p>
+                    <div class="testimonial-author">
+                        <strong>Stephanie Octavia</strong>
+                        <span>CEO, Digital Skola</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Ardhi's strategic approach to our expansion has been invaluable. He helped us scale from 3 to 8 outlets while maintaining healthy P&L ratios across all locations. His ability to spot potential financial bottlenecks before they became problems saved us months of headaches. Working with him feels like having a seasoned CFO who truly understands retail operations."</p>
+                    <div class="testimonial-author">
+                        <strong>Anonymous</strong>
+                        <span>CEO, Multi-location Retail Chain</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"We were facing a cash crunch that threatened our growth plans. Ardhi didn't just identify the root causes—he built us a comprehensive cash flow model that gave us clarity for the next 18 months. His work on our pitch deck was exceptional, helping us present our financials in a way that resonated with investors. He's the strategic finance partner every SaaS founder needs."</p>
+                    <div class="testimonial-author">
+                        <strong>Anonymous</strong>
+                        <span>Founder, Custom SaaS Solutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Insights Section -->
     <section id="insights" class="section insights">
         <div class="container">
@@ -919,6 +1308,21 @@
     </section>
 
     <script>
+
+        // Animate progress bars when in view
+        const resultCards = document.querySelectorAll('.result-card');
+        const resultObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        resultCards.forEach(card => {
+            resultObserver.observe(card);
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
