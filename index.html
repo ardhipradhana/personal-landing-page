@@ -406,12 +406,35 @@
             margin-top: 3rem;
         }
 
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--navy);
+            fill: none;
+            stroke-width: 2;
+        }
+
         .contact-card {
             text-align: center;
             padding: 2rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
         }
 
         .contact-card h3 {
@@ -427,6 +450,7 @@
 
         .contact-card .btn {
             width: 100%;
+            margin-top: auto;
         }
 
         /* Mobile Responsiveness */
@@ -1106,6 +1130,8 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(218, 165, 32, 0.3);
         }
+
+        
     </style>
 </head>
 <body>
@@ -1565,27 +1591,43 @@
             
             <div class="contact-grid">
                 <div class="contact-card">
-                    <h3>📅 Book a Session</h3>
-                    <p>Ready to discuss your financial needs? Let's schedule a strategic session.</p>
-                    <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book Now</a>
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                            <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/>
+                        </svg>
+                    </div>
+                    <h3>Book a Strategic Session</h3>
+                    <p>Ready to transform your financial strategy? Let's schedule a focused conversation about your goals.</p>
+                    <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Schedule Now</a>
                 </div>
                 
                 <div class="contact-card">
-                    <h3>📩 Email Me</h3>
-                    <p>Have questions or want to discuss retainer options? Send me a message.</p>
-                    <a href="mailto:ardhi@aapgrp.com" class="btn btn-primary">Send Email</a>
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h3>Send a Quick Message</h3>
+                    <p>Have a specific question or want to discuss partnership options? Drop me a line and I'll respond personally.</p>
+                    <a href="mailto:ardhi@aapgrp.com" class="btn btn-primary">Send Message</a>
                 </div>
                 
                 <div class="contact-card">
-                    <h3>🔗 Connect on LinkedIn</h3>
-                    <p>Follow my insights and connect with me on LinkedIn for regular updates.</p>
-                    <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-primary" target="_blank">Connect</a>
-                </div>
-                
-                <div class="contact-card">
-                    <h3>📢 Join My Telegram</h3>
-                    <p>Get exclusive insights delivered directly to your Telegram.</p>
-                    <a href="https://t.me/+a8kYqCEZuHk3NjM1" class="btn btn-primary" target="_blank">Join Channel</a>
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Connect on LinkedIn</h3>
+                    <p>Join my network for regular insights on financial strategy and business growth. Let's stay connected.</p>
+                    <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-primary" target="_blank">Connect Now</a>
                 </div>
             </div>
             
