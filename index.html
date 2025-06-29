@@ -564,8 +564,9 @@
         
         .popular-badge {
             position: absolute;
-            top: -10px;
-            right: -10px;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
             background: var(--gold);
             color: var(--navy);
             padding: 0.5rem 1rem;
@@ -576,6 +577,15 @@
             letter-spacing: 0.5px;
             box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
             z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+        
+        .popular-badge::before {
+            content: "⭐";
+            font-size: 0.9rem;
         }
         
         .service-card.featured:hover {
@@ -685,7 +695,7 @@
                         </svg>
                     </div>
                     <h3>Strategic CFO Partnership</h3>
-                    <p>You know your business inside out. I bring the financial strategy to accelerate what you've built. As your integrated finance partner, I work alongside you to turn cash flow into predictable growth and establish the metrics that unlock your next stage.</p>
+                    <p>You know your business inside out. I bring the financial strategy to accelerate what you've built. As your integrated finance partner, I work alongside you to unlock your next stage.</p>
                     <p><strong>Flexible weekly engagement that grows with your needs.</strong></p>
                     <a href="mailto:ardhi@aapgrp.com?subject=Strategic CFO Partnership Inquiry" class="btn btn-primary">Start Partnership</a>
                 </div>
