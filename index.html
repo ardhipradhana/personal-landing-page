@@ -26,6 +26,9 @@
             --light-gray: #f8f9fa;
             --white: #ffffff;
             --text-gray: #6c757d;
+            --light-blue-gray: #f1f5f9;
+            --warm-light-gray: #fafafa;
+            --cool-light-gray: #f9fafb;
         }
 
         /* Navigation */
@@ -198,7 +201,7 @@
 
         /* About Section */
         .about {
-            background: var(--light-gray);
+            background: var(--light-blue-gray);
         }
 
         .about-content {
@@ -252,7 +255,7 @@
 
         /* Services Section */
         .services {
-            background: var(--light-gray);
+            background: var(--warm-light-gray);
         }
 
         .services-grid {
@@ -308,7 +311,7 @@
 
         /* What I Help With Section */
         .help-with {
-            background: var(--white);
+            background: var(--cool-light-gray);
         }
 
         .help-steps {
@@ -551,6 +554,39 @@
             display: block;
             width: fit-content;
         }
+
+        /* Featured Service Card and Popular Badge */
+        .service-card.featured {
+            position: relative;
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 15px 35px rgba(26, 35, 50, 0.15);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
+            z-index: 10;
+        }
+        
+        .service-card.featured:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(26, 35, 50, 0.2);
+        }
+        
+        /* Ensure featured card stands out slightly */
+        .service-card.featured h3 {
+            color: var(--gold);
+        }
     </style>
 </head>
 <body>
@@ -636,9 +672,24 @@
     <section id="services" class="section services">
         <div class="container">
             <h2 class="section-title">How to Work with Me</h2>
-            <p class="section-subtitle">Choose the level of strategic support that fits where you are right now.</p>
+            <p class="section-subtitle">You've built something valuable. Let's optimize it for what's next.</p>
             
             <div class="services-grid">
+                <div class="service-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            <path d="m9 14 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Strategic CFO Partnership</h3>
+                    <p>You know your business inside out. I bring the financial strategy to accelerate what you've built. As your integrated finance partner, I work alongside you to turn cash flow into predictable growth and establish the metrics that unlock your next stage.</p>
+                    <p><strong>Flexible weekly engagement that grows with your needs.</strong></p>
+                    <a href="mailto:ardhi@aapgrp.com?subject=Strategic CFO Partnership Inquiry" class="btn btn-primary">Start Partnership</a>
+                </div>
+                
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -647,23 +698,9 @@
                         </svg>
                     </div>
                     <h3>On-Demand Session</h3>
-                    <p>Get immediate clarity on your most pressing financial decision. Perfect for model reviews, investor deck optimization, or strategic planning challenges.</p>
-                    <p><strong>One focused session, maximum impact.</strong></p>
+                    <p>When you need CFO-level insight on a specific decision. Perfect for optimizing financial models, sharpening investor conversations, or navigating strategic crossroads with confidence.</p>
+                    <p><strong>One focused session, maximum clarity.</strong></p>
                     <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book a Session</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-                            <path d="m9 14 2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3>Monthly Retainer</h3>
-                    <p>Ongoing strategic guidance tailored to your business needs. Weekly dedicated time for financial planning, analysis, and advisory without the full-time commitment.</p>
-                    <p><strong>Consistent CFO-level support, flexible engagement.</strong></p>
-                    <a href="mailto:ardhi@aapgrp.com?subject=Monthly Partnership Inquiry" class="btn btn-primary">Discuss Partnership</a>
                 </div>
                 
                 <div class="service-card">
@@ -672,9 +709,9 @@
                             <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
                         </svg>
                     </div>
-                    <h3>Discovery Call</h3>
-                    <p>Not sure what level of support you need? Let's explore the possibilities together. A no-pressure conversation to understand your situation and discuss the best path forward.</p>
-                    <p><strong>Free exploration, no prep needed.</strong></p>
+                    <h3>Discovery Conversation</h3>
+                    <p>Not sure what level of financial strategy support would accelerate your business? Let's explore the possibilities together in a no-pressure conversation.</p>
+                    <p><strong>Free exploration, genuine insights.</strong></p>
                     <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Start Conversation</a>
                 </div>
             </div>
@@ -685,9 +722,9 @@
     <section id="help-with" class="section help-with">
         <div class="container">
             <h2 class="section-title">What I Help With</h2>
-            <p class="section-subtitle">Before we plan, we clean. Then we build.</p>
+            <p class="section-subtitle">You've built something valuable. Let's unlock its full potential.</p>
             <p style="text-align: center; margin-bottom: 3rem; color: var(--text-gray);">
-                My work usually starts with fixing what's broken and ends with helping you scale smarter. Here's how that journey often looks:
+                My work starts with optimizing what you've created and ends with building systems that scale. Here's how we accelerate your success:
             </p>
             
             <div class="help-steps">
@@ -695,17 +732,17 @@
                     <div class="step-number">1</div>
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="9" y1="9" x2="15" y2="9"/>
-                            <line x1="9" y1="13" x2="15" y2="13"/>
-                            <line x1="9" y1="17" x2="13" y2="17"/>
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h3>Fix the Foundations</h3>
+                    <h3>Optimize Your Foundation</h3>
                     <ul>
-                        <li>Clean up and standardize your financial reports</li>
-                        <li>Rebuild the structure so numbers reflect reality</li>
-                        <li>Align your reporting with how the business actually runs</li>
+                        <li>Transform existing reports into strategic dashboards</li>
+                        <li>Build investor-ready financial statements</li>
+                        <li>Establish meaningful KPIs that drive decisions</li>
+                        <li>Create transparent cash flow visibility</li>
                     </ul>
                 </div>
                 
@@ -713,16 +750,15 @@
                     <div class="step-number">2</div>
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="18" y1="20" x2="18" y2="10"/>
-                            <line x1="12" y1="20" x2="12" y2="4"/>
-                            <line x1="6" y1="20" x2="6" y2="14"/>
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                         </svg>
                     </div>
-                    <h3>Find the Truth in the Numbers</h3>
+                    <h3>Accelerate Performance</h3>
                     <ul>
-                        <li>Analyze your performance using meaningful ratios and trends</li>
-                        <li>Spot red flags, gaps, or silent leaks</li>
-                        <li>Turn messy numbers into clear insights</li>
+                        <li>Identify growth opportunities hidden in your numbers</li>
+                        <li>Optimize unit economics and profit margins</li>
+                        <li>Develop predictable cash flow models</li>
+                        <li>Create frameworks for faster decision-making</li>
                     </ul>
                 </div>
                 
@@ -730,14 +766,20 @@
                     <div class="step-number">3</div>
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="3,11 22,2 13,21 11,13 3,11"/>
+                            <path d="M7 10v12"/>
+                            <path d="M15 5v16"/>
+                            <path d="M5 12h4"/>
+                            <path d="M13 7h4"/>
+                            <circle cx="9" cy="4" r="2"/>
+                            <circle cx="17" cy="21" r="2"/>
                         </svg>
                     </div>
-                    <h3>Plan the Next Step</h3>
+                    <h3>Scale with Confidence</h3>
                     <ul>
-                        <li>Build budgets, forecasts, and models you can actually use</li>
-                        <li>Sharpen your roadmap with metrics that matter</li>
-                        <li>Support your investor conversations with clarity and confidence</li>
+                        <li>Build scalable financial systems and processes</li>
+                        <li>Prepare compelling investor presentations</li>
+                        <li>Establish governance frameworks for growth</li>
+                        <li>Create strategic roadmaps for expansion</li>
                     </ul>
                 </div>
             </div>
