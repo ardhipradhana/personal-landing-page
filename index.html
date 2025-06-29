@@ -1373,6 +1373,52 @@
                 padding: 3rem 0 2rem;
             }
         }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .logo-container {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            color: var(--white);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
         
     </style>
 </head>
@@ -1380,7 +1426,12 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo">Ardhi A. Pradhana</a>
+            <a href="#hero" class="logo">
+                <div class="logo-container">
+                    <img src="AAP Logo.png" alt="AAP Logo" class="logo-image">
+                </div>
+                <span class="logo-text">Ardhi A. Pradhana</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#services">Services</a></li>
@@ -1923,7 +1974,12 @@
             <div class="footer-content">
                 <!-- Brand Section -->
                 <div class="footer-brand">
-                    <h3>Ardhi A. Pradhana</h3>
+                    <div class="footer-logo">
+                        <div class="logo-container">
+                            <img src="AAP Logo.png" alt="AAP Logo" class="logo-image">
+                        </div>
+                        <h3>Ardhi A. Pradhana</h3>
+                    </div>
                     <p>Your Strategic CFO Partner for transforming financial complexity into competitive advantage.</p>
                     <a href="https://www.linkedin.com/in/ardhipradhana" class="footer-social" target="_blank">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
