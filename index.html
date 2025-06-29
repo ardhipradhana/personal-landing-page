@@ -906,6 +906,201 @@
                 font-size: 2.5rem;
             }
         }
+
+        /* Enhanced Insights Section */
+        .insight-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(26, 35, 50, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(26, 35, 50, 0.15);
+        }
+        
+        .insight-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background: var(--light-gray);
+        }
+        
+        .insight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .insight-card:hover .insight-image img {
+            transform: scale(1.05);
+        }
+        
+        /* Placeholder Image Styling */
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--navy), var(--light-navy));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .placeholder-image.newsletter {
+            background: linear-gradient(135deg, var(--gold), #f7d154);
+        }
+        
+        .placeholder-image svg {
+            width: 48px;
+            height: 48px;
+            stroke: rgba(255, 255, 255, 0.8);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .placeholder-image.newsletter svg {
+            stroke: var(--navy);
+        }
+        
+        .insight-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .insight-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--navy);
+            line-height: 1.4;
+            font-weight: 600;
+        }
+        
+        .insight-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .insight-meta span {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        
+        /* LinkedIn Badge */
+        .linkedin-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #f3f7ff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            border: 1px solid #e1ecff;
+        }
+        
+        .linkedin-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* Newsletter Badge */
+        .newsletter-badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .insight-content p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        /* Read More Button */
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .read-more-btn:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        
+        .read-more-btn::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+        
+        .read-more-btn:hover::after {
+            transform: translateX(3px);
+        }
+        
+        /* Grid responsiveness */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .insights-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .insight-image {
+                height: 160px;
+            }
+            
+            .insight-content {
+                padding: 1.25rem;
+            }
+            
+            .insight-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .insight-content h4 {
+                font-size: 1rem;
+            }
+            
+            .insight-image {
+                height: 140px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1229,34 +1424,139 @@
             
             <div class="insights-grid">
                 <div class="insight-card">
-                    <h4>Recap: The Working Capital Week</h4>
-                    <div class="insight-meta">May 8, 2025 • LinkedIn</div>
-                    <p>They had sales. They had traction. But forgot that cash has a schedule.</p>
+                    <div class="insight-image">
+                        <div class="placeholder-image">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Recap: The Working Capital Week</h4>
+                        <div class="insight-meta">
+                            <span>May 8, 2025</span>
+                            <div class="linkedin-badge">
+                                <svg viewBox="0 0 24 24" fill="#0077B5">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p>They had sales. They had traction. But forgot that cash has a schedule.</p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
                 </div>
                 
                 <div class="insight-card">
-                    <h4>The Quiet ESG Revolution That's Redefining Investment Success</h4>
-                    <div class="insight-meta">LinkedIn</div>
+                    <div class="insight-image">
+                        <div class="placeholder-image">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3v18h18"/>
+                                <path d="M7 12l3-3 4 4 5-5"/>
+                                <path d="M17 8h4v4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="insight-content">
+                        <h4>The Quiet ESG Revolution That's Redefining Investment Success</h4>
+                        <div class="insight-meta">
+                            <span>June 15, 2025</span>
+                            <div class="linkedin-badge">
+                                <svg viewBox="0 0 24 24" fill="#0077B5">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p>How sustainable investing principles are quietly transforming returns and reshaping markets.</p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
                 </div>
                 
                 <div class="insight-card">
-                    <h4>Your revenue can be skyrocketing, and still leave you broke.</h4>
-                    <div class="insight-meta">LinkedIn</div>
+                    <div class="insight-image">
+                        <div class="placeholder-image">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Your revenue can be skyrocketing, and still leave you broke.</h4>
+                        <div class="insight-meta">
+                            <span>June 10, 2025</span>
+                            <div class="linkedin-badge">
+                                <svg viewBox="0 0 24 24" fill="#0077B5">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p>The cash flow reality that high-growth companies often overlook until it's too late.</p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
                 </div>
                 
                 <div class="insight-card">
-                    <h4>Number-Driven or Number-Blind? The Startup Metrics That Determine Your Future</h4>
-                    <div class="insight-meta">May 9, 2025 • Newsletter</div>
+                    <div class="insight-image">
+                        <div class="placeholder-image newsletter">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Number-Driven or Number-Blind? The Startup Metrics That Determine Your Future</h4>
+                        <div class="insight-meta">
+                            <span>May 9, 2025</span>
+                            <div class="newsletter-badge">Newsletter</div>
+                        </div>
+                        <p>Essential financial metrics every founder should track for sustainable growth and investor confidence.</p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
                 </div>
                 
                 <div class="insight-card">
-                    <h4>Master the Game: Working Capital as Your Startup's Secret Weapon</h4>
-                    <div class="insight-meta">Newsletter</div>
+                    <div class="insight-image">
+                        <div class="placeholder-image newsletter">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Master the Game: Working Capital as Your Startup's Secret Weapon</h4>
+                        <div class="insight-meta">
+                            <span>May 15, 2025</span>
+                            <div class="newsletter-badge">Newsletter</div>
+                        </div>
+                        <p>How smart working capital management can extend your runway and accelerate growth.</p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
                 </div>
                 
                 <div class="insight-card">
-                    <h4>Post-Due Diligence: Mastering the Integration Marathon</h4>
-                    <div class="insight-meta">Newsletter</div>
+                    <div class="insight-image">
+                        <div class="placeholder-image newsletter">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                <path d="m9 14 2 2 4-4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Post-Due Diligence: Mastering the Integration Marathon</h4>
+                        <div class="insight-meta">
+                            <span>April 20, 2025</span>
+                            <div class="newsletter-badge">Newsletter</div>
+                        </div>
+                        <p>The critical 90-day period after closing deals and how to ensure successful integration.</p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
                 </div>
             </div>
             
