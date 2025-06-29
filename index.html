@@ -321,15 +321,15 @@
 
         .help-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Increase minimum width */
-            gap: 2.5rem; /* Increase gap between cards */
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Increase minimum width */
+            gap: 3rem; /* Increase gap more */
             margin-top: 3rem;
         }
 
         .step-card {
             text-align: center;
-            padding: 2rem 1.5rem;
-            min-width: 320px; 
+            padding: 2rem 2rem; /* Increase horizontal padding more */
+            min-width: 380px; /* Increase minimum width further */
         }
 
         .step-number {
@@ -355,15 +355,17 @@
         .step-card ul {
             list-style: none;
             color: var(--text-gray);
-            max-width: 280px; /* Increase max width for bullet points */
-            margin: 0 auto; /* Center the list */
+            max-width: 320px; /* Increase max width more */
+            margin: 0 auto;
+            text-align: left; /* Left align the text */
         }
         
         .step-card li {
-            margin-bottom: 0.8rem; /* Increase spacing between bullets */
+            margin-bottom: 0.8rem;
             padding-left: 1rem;
             position: relative;
-            line-height: 1.4; /* Better line height */
+            line-height: 1.4;
+            text-align: left; /* Ensure text is left aligned */
         }
 
         .step-card li::before {
