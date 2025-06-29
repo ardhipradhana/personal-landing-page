@@ -517,6 +517,29 @@
             height: 20px;
             fill: white;
         }
+
+        .about-title {
+            position: relative;
+        }
+        
+        .circle-accent {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .circle-accent::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,40 Q50,10 100,20 Q150,30 180,40 Q150,50 100,60 Q50,70 20,40' stroke='%23DAA520' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            z-index: -1;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -552,7 +575,9 @@
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title about-title">
+                <span class="circle-accent">About Me</span>
+            </h2>
             <div class="about-content">
                 <div class="about-image">
                     <img src="https://via.placeholder.com/300x300/1a2332/f4a261?text=Ardhi+A.+Pradhana" alt="Ardhi A. Pradhana">
