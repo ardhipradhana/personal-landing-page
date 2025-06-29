@@ -914,7 +914,7 @@
         .insight-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Scale and crop to fit */
+            object-fit: cover;
             object-position: center;
             transition: transform 0.3s ease;
         }
@@ -1044,13 +1044,11 @@
         /* Grid responsiveness */
         .insights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 3rem;
-            align-items: start; /* Align cards to top */
+            align-items: start;
         }
-
-        
         
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
