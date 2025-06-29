@@ -85,8 +85,19 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            border-top: 1px solid rgba(218, 165, 32, 0.2); /* Add this gold line */
-            margin-top: 80px; /* Add space for the fixed nav */
+            padding-top: 80px; /* Use padding instead of margin */
+            box-sizing: border-box; /* Ensure padding is included in height calculations */
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(218, 165, 32, 0.3);
+            z-index: 3;
         }
 
         .hero::before {
