@@ -380,21 +380,6 @@
             background: var(--light-gray);
         }
 
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .insight-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(26, 35, 50, 0.1);
-            transition: transform 0.3s ease;
-        }
-
         .insight-card:hover {
             transform: translateY(-3px);
         }
@@ -910,7 +895,9 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            height: 400px; /* Fixed height for all cards */
+            min-height: 400px; /* Ensure minimum height */
+            max-height: 400px; /* Prevent cards from growing */
         }
         
         .insight-card:hover {
@@ -918,12 +905,12 @@
             box-shadow: 0 15px 30px rgba(26, 35, 50, 0.15);
         }
         
-        .insight-image {
+        .insight-image img {
             width: 100%;
-            height: 180px;
-            overflow: hidden;
-            position: relative;
-            background: var(--light-gray);
+            height: 100%;
+            object-fit: cover; /* This crops/scales image to fit exactly */
+            object-position: center; /* Center the image when cropping */
+            transition: transform 0.3s ease;
         }
         
         .insight-image img {
@@ -969,6 +956,8 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            height: calc(100% - 180px); /* Remaining height after image */
+            overflow: hidden; /* Prevent content overflow */
         }
         
         .insight-content h4 {
@@ -977,14 +966,16 @@
             color: var(--navy);
             line-height: 1.4;
             font-weight: 600;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Limit title to 2 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .insight-meta {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
             margin-bottom: 1rem;
-            font-size: 0.9rem;
+            flex-shrink: 0; /* Don't let meta shrink */
         }
         
         .insight-meta span {
@@ -1023,23 +1014,19 @@
         .insight-content p {
             color: var(--text-gray);
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limit description to 3 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         /* Read More Button */
         .read-more-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--navy);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
+            margin-top: auto; /* Push to bottom */
+            flex-shrink: 0; /* Don't let button shrink */
         }
         
         .read-more-btn:hover {
@@ -1072,15 +1059,24 @@
             }
             
             .insight-image {
-                height: 160px;
+                height: 150px;
+                min-height: 150px;
+                max-height: 150px;
             }
             
             .insight-content {
+                height: calc(100% - 150px);
                 padding: 1.25rem;
             }
             
             .insight-meta {
                 justify-content: center;
+            }
+
+            .insight-card {
+                height: 350px;
+                min-height: 350px;
+                max-height: 350px;
             }
         }
         
@@ -1434,7 +1430,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <p>𝗠𝗼𝘀𝘁 𝘀𝘁𝗮𝗿𝘁𝘂𝗽𝘀 𝗱𝗼𝗻’𝘁 𝗿𝘂𝗻 𝗼𝘂𝘁 𝗼𝗳 𝗶𝗱𝗲𝗮𝘀. They run out of cash, while sitting on a pile of “revenue.”</p>
+                        <p>Most startups don’t run out of ideas. They run out of cash, while sitting on a pile of “revenue.”</p>
                         <a href="https://www.linkedin.com/feed/update/urn:li:activity:7322439421817950208/" class="read-more-btn">Read More</a>
                     </div>
                 </div>
@@ -1501,7 +1497,7 @@
                             <div class="newsletter-badge">Newsletter</div>
                         </div>
                         <p>That moment when you realize you're managing millions with tools from 1995... Yeah, let's talk about that. Plus some actually useful AI stuff that doesn't require a PhD.</p>
-                        <a href="#" class="read-more-btn">Read More</a>
+                        <a href="https://www.linkedin.com/pulse/cash-flow-strategic-decision-making-ai-edge-ardhi-a-pradhana-cyx3c/" class="read-more-btn">Read More</a>
                     </div>
                 </div>
                 
