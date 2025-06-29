@@ -321,14 +321,15 @@
 
         .help-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Increase minimum width */
+            gap: 2.5rem; /* Increase gap between cards */
             margin-top: 3rem;
         }
 
         .step-card {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
+            min-width: 320px; 
         }
 
         .step-number {
@@ -354,12 +355,15 @@
         .step-card ul {
             list-style: none;
             color: var(--text-gray);
+            max-width: 280px; /* Increase max width for bullet points */
+            margin: 0 auto; /* Center the list */
         }
-
+        
         .step-card li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem; /* Increase spacing between bullets */
             padding-left: 1rem;
             position: relative;
+            line-height: 1.4; /* Better line height */
         }
 
         .step-card li::before {
@@ -771,9 +775,9 @@
                     </div>
                     <h3>Optimize Your Foundation</h3>
                     <ul>
-                        <li>Transform existing reports into strategic dashboards</li>
+                        <li>Transform reports into strategic dashboards</li>
                         <li>Build investor-ready financial statements</li>
-                        <li>Establish meaningful KPIs that drive decisions</li>
+                        <li>Establish KPIs that drive decisions</li>
                         <li>Create transparent cash flow visibility</li>
                     </ul>
                 </div>
@@ -787,10 +791,10 @@
                     </div>
                     <h3>Accelerate Performance</h3>
                     <ul>
-                        <li>Identify growth opportunities hidden in your numbers</li>
+                        <li>Identify growth opportunities in your numbers</li>
                         <li>Optimize unit economics and profit margins</li>
                         <li>Develop predictable cash flow models</li>
-                        <li>Create frameworks for faster decision-making</li>
+                        <li>Create frameworks for faster decisions</li>
                     </ul>
                 </div>
                 
@@ -798,12 +802,9 @@
                     <div class="step-number">3</div>
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 10v12"/>
-                            <path d="M15 5v16"/>
-                            <path d="M5 12h4"/>
-                            <path d="M13 7h4"/>
-                            <circle cx="9" cy="4" r="2"/>
-                            <circle cx="17" cy="21" r="2"/>
+                            <path d="M3 3v18h18"/>
+                            <path d="M7 12l3-3 4 4 5-5"/>
+                            <path d="M17 8h4v4"/>
                         </svg>
                     </div>
                     <h3>Scale with Confidence</h3>
