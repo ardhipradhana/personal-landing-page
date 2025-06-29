@@ -379,15 +379,13 @@
         .insights {
             background: var(--light-gray);
         }
-
-        .insight-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .insight-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--navy);
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: start;
         }
 
         /* Contact Section */
@@ -1039,15 +1037,6 @@
         
         .read-more-btn:hover::after {
             transform: translateX(3px);
-        }
-        
-        /* Grid responsiveness */
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            align-items: start;
         }
         
         /* Mobile Responsiveness */
