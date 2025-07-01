@@ -1520,6 +1520,112 @@
         .btn-cancel:hover {
             background: #5a6268;
         }
+
+        /* Custom Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--gold);
+            padding: 20px 24px;
+            max-width: 400px;
+            z-index: 3000;
+            transform: translateX(450px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .notification.success {
+            border-left-color: #10b981;
+        }
+        
+        .notification.error {
+            border-left-color: #ef4444;
+        }
+        
+        .notification-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .notification-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .notification-icon.success {
+            background: #d1fae5;
+            color: #10b981;
+        }
+        
+        .notification-icon.error {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+        
+        .notification-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 16px;
+        }
+        
+        .notification-message {
+            color: var(--text-gray);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .notification-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            cursor: pointer;
+            font-size: 18px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .notification-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                transform: translateY(-100px);
+            }
+            
+            .notification.show {
+                transform: translateY(0);
+            }
+        }
         
     </style>
 </head>
@@ -2198,18 +2304,74 @@
                 });
                 
                 if (response.ok) {
-                    alert('Perfect! Your personalized quotation will be sent to your email within the next few minutes.');
+                    showNotification(
+                        'Quote Sent Successfully!',
+                        'Your personalized quotation will be sent to your email within the next few minutes. Please check your inbox (and spam folder just in case).',
+                        'success'
+                    );
                     closeModal();
                 } else {
                     throw new Error('Network response was not ok');
                 }
             } catch (error) {
-                alert('Something went wrong. Please email us directly at ardhi@aapgrp.com');
+                showNotification(
+                    'Something Went Wrong',
+                    'Please email us directly at ardhi@aapgrp.com and we\'ll send your quote manually.',
+                    'error'
+                );
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
+
+        // Custom notification system
+        function showNotification(title, message, type = 'success') {
+            // Remove any existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => notification.remove());
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            notification.innerHTML = `
+                <button class="notification-close">&times;</button>
+                <div class="notification-header">
+                    <div class="notification-icon ${type}">
+                        ${type === 'success' ? '✓' : '⚠'}
+                    </div>
+                    <div class="notification-title">${title}</div>
+                </div>
+                <p class="notification-message">${message}</p>
+            `;
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            // Auto-hide after 5 seconds
+            const autoHide = setTimeout(() => {
+                hideNotification(notification);
+            }, 3000);
+            
+            // Close button functionality
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                clearTimeout(autoHide);
+                hideNotification(notification);
+            });
+        }
+        
+        function hideNotification(notification) {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 400);
+        }
         
         // Close modal when clicking outside
         window.onclick = function(event) {
