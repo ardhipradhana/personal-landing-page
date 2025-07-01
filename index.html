@@ -1619,6 +1619,90 @@
                 transform: translateY(0);
             }
         }
+
+        /* Speaking Experience Section */
+        .speaking-experience {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        .speaking-experience .section-title {
+            color: var(--white);
+        }
+        
+        .speaking-experience .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .speaking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .speaking-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .speaking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .speaking-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .speaking-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--navy);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .speaking-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        
+        .speaking-card .institution {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .speaking-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .speaking-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .speaking-card {
+                padding: 1.5rem;
+            }
+        }
         
     </style>
 </head>
@@ -2003,6 +2087,56 @@
                     <h3>Extended Runway</h3>
                     <p>Reduced cash burn through improved financial management</p>
                     <span class="result-context">Digital Startup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speaking & Teaching Experience Section -->
+    <section id="speaking-experience" class="section speaking-experience">
+        <div class="container">
+            <h2 class="section-title">Recognized Financial Expert</h2>
+            <p class="section-subtitle">Trusted by leading institutions to share financial strategy insights with tomorrow's business leaders.</p>
+            
+            <div class="speaking-grid">
+                <div class="speaking-card">
+                    <div class="speaking-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 0 5-1 8-1s5 1 8 1v-5"/>
+                        </svg>
+                    </div>
+                    <h3>Guest Lecturer</h3>
+                    <div class="institution">SBM ITB</div>
+                    <p>Teaching financial strategy and corporate finance to students at Indonesia's premier business school.</p>
+                </div>
+                
+                <div class="speaking-card">
+                    <div class="speaking-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Industry Panelist</h3>
+                    <div class="institution">Financial Health Assessment @ Block71</div>
+                    <p>Sharing insights on corporate financial wellness and strategic decision-making with startup leaders.</p>
+                </div>
+                
+                <div class="speaking-card">
+                    <div class="speaking-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                            <path d="M7 8l5-3 5 3v5l-5 3-5-3z"/>
+                        </svg>
+                    </div>
+                    <h3>Course Instructor</h3>
+                    <div class="institution">Online Financial Classes</div>
+                    <p>Developing and delivering comprehensive courses on financials and strategic analysis for professionals.</p>
                 </div>
             </div>
         </div>
