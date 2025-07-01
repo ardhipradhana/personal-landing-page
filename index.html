@@ -1512,6 +1512,21 @@
         .btn-cancel:hover {
             background: #5a6268;
         }
+
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: white;
+        }
+        
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
         
     </style>
 </head>
@@ -1556,6 +1571,16 @@
                 <div class="form-group">
                     <label for="email">Email Address*</label>
                     <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="timeCommitment">Preferred Time Commitment*</label>
+                    <select id="timeCommitment" name="timeCommitment" required>
+                        <option value="">Select time commitment</option>
+                        <option value="overview">Overview - Help me decide</option>
+                        <option value="5">5 hours per week</option>
+                        <option value="10">10 hours per week</option>
+                        <option value="15">15 hours per week</option>
+                    </select>
                 </div>
                 <div class="modal-buttons">
                     <button type="button" class="btn btn-cancel" onclick="closeModal()">Cancel</button>
