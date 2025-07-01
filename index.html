@@ -291,12 +291,11 @@
         .service-icon {
             width: 60px;
             height: 60px;
-            margin-bottom: 1.5rem;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 1.5rem auto;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0; 
         }
         
         .service-icon svg {
@@ -305,12 +304,19 @@
             stroke: var(--gold);
             fill: none;
             stroke-width: 2;
+            flex-shrink: 0; 
         }
 
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--navy);
+            text-align: center;
+            min-height: 3rem; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
         }
 
         .service-card p {
@@ -599,12 +605,12 @@
         
         .popular-badge {
             position: absolute;
-            top: -12px;
+            top: -15px; /* Adjusted for perfect cross-section */
             left: 50%;
             transform: translateX(-50%);
             background: var(--gold);
             color: var(--navy);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem; /* Slightly larger padding */
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 700;
@@ -616,6 +622,7 @@
             align-items: center;
             gap: 0.4rem;
             white-space: nowrap;
+            height: 30px; /* Fixed height for consistency */
         }
         
         .popular-badge::before {
