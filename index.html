@@ -1438,6 +1438,80 @@
             font-weight: 700;
             margin: 0;
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-header h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn-cancel {
+            background: #6c757d;
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-cancel:hover {
+            background: #5a6268;
+        }
         
     </style>
 </head>
@@ -1462,6 +1536,34 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Quote Request Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request Your Strategic Partnership Quote</h3>
+                <p style="color: var(--text-gray);">Please provide your details to receive a personalized quotation</p>
+            </div>
+            <form id="quoteForm">
+                <div class="form-group">
+                    <label for="clientName">Your Full Name*</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="companyName">Company Name*</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-cancel" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Send Quote</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -1592,7 +1694,7 @@
                     <h3>Strategic CFO Partnership</h3>
                     <p>Integrated financial strategy that accelerates what you've built. Work with me to unlock your next growth stage.</p>
                     <p><strong>Weekly engagement that scales with you.</strong></p>
-                    <button onclick="requestRetainerQuote()" class="btn btn-primary">Get Quote</button>
+                    <button onclick="openModal('retainer')" class="btn btn-primary">Get Quote</button>
                 </div>
                 
                 <div class="service-card">
@@ -1608,7 +1710,7 @@
                     <h3>Project Engagement</h3>
                     <p>Specific deliverables with defined scope. Build budget & financial models or comprehensive assessments.</p>
                     <p><strong>Fixed scope, measurable outcomes.</strong></p>
-                    <button onclick="requestProjectQuote()" class="btn btn-primary">Get Quote</button>
+                    <button onclick="openModal('project')" class="btn btn-primary">Get Quote</button>
                 </div>
                 
                 <div class="service-card">
@@ -2036,82 +2138,65 @@
     </footer>
 
     <script>
-        async function requestRetainerQuote() {
-            const email = prompt('Please enter your email address to receive the Strategic Partnership quotation:');
-            
-            if (!email || !email.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            const button = event.target;
-            const originalText = button.textContent;
-            button.textContent = 'Sending...';
-            button.disabled = true;
-            
-            try {
-                const response = await fetch('https://montpro.app.n8n.cloud/webhook/retainer-quote', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        serviceType: 'Strategic CFO Partnership',
-                        email: email,
-                        timestamp: new Date().toISOString()
-                    })
-                });
-                
-                if (response.ok) {
-                    alert('Perfect! Your Strategic Partnership quotation will be sent to your email within the next few minutes. Please check your inbox (and spam folder just in case).');
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            } catch (error) {
-                alert('Something went wrong. Please send us an email directly at ardhi@aapgrp.com');
-            } finally {
-                button.textContent = originalText;
-                button.disabled = false;
-            }
+        // Modal functionality
+        function openModal(serviceType) {
+            document.getElementById('quoteModal').style.display = 'block';
+            document.getElementById('quoteModal').setAttribute('data-service', serviceType);
         }
         
-        // Project quote request functionality
-        async function requestProjectQuote() {
-            const email = prompt('Please enter your email address to receive the Project Engagement quotation:');
+        function closeModal() {
+            document.getElementById('quoteModal').style.display = 'none';
+            document.getElementById('quoteForm').reset();
+        }
+        
+        // Form submission
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            if (!email || !email.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
+            const serviceType = document.getElementById('quoteModal').getAttribute('data-service');
+            const formData = {
+                clientName: document.getElementById('clientName').value,
+                companyName: document.getElementById('companyName').value,
+                email: document.getElementById('email').value,
+                serviceType: serviceType,
+                timestamp: new Date().toISOString()
+            };
             
-            const button = event.target;
-            const originalText = button.textContent;
-            button.textContent = 'Sending...';
-            button.disabled = true;
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
             
             try {
-                const response = await fetch('https://montpro.app.n8n.cloud/webhook/project-quote', {
+                const webhookUrl = serviceType === 'retainer' ? 
+                    'https://montpro.app.n8n.cloud/webhook/retainer-quote' : 
+                    'https://montpro.app.n8n.cloud/webhook/project-quote';
+                    
+                const response = await fetch(webhookUrl, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        serviceType: 'Project Engagement',
-                        email: email,
-                        timestamp: new Date().toISOString()
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
                 });
                 
                 if (response.ok) {
-                    alert('Perfect! Your Project Engagement quotation will be sent to your email within the next few minutes. Please check your inbox (and spam folder just in case).');
+                    alert('Perfect! Your personalized quotation will be sent to your email within the next few minutes.');
+                    closeModal();
                 } else {
                     throw new Error('Network response was not ok');
                 }
             } catch (error) {
-                alert('Something went wrong. Please send us an email directly at ardhi@aapgrp.com');
+                alert('Something went wrong. Please email us directly at ardhi@aapgrp.com');
             } finally {
-                button.textContent = originalText;
-                button.disabled = false;
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('quoteModal');
+            if (event.target == modal) {
+                closeModal();
             }
         }
 
