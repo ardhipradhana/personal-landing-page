@@ -264,10 +264,10 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-top: 3rem;
-            align-items: stretch; /* Add this */
+            align-items: stretch;
         }
         
         .service-card {
@@ -495,6 +495,12 @@
             .service-card {
                 width: 100%;
                 padding: 2rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
