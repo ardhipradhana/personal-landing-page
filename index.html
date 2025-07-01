@@ -1554,21 +1554,6 @@
             <p class="section-subtitle">You've built something valuable. Let's optimize it for what's next.</p>
             
             <div class="services-grid">
-                <div class="service-card featured">
-                    <div class="popular-badge">Most Popular</div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-                            <path d="m9 14 2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3>Strategic CFO Partnership</h3>
-                    <p>You know your business inside out. I bring the financial strategy to accelerate what you've built. As your integrated partner, I work alongside you to unlock your next stage.</p>
-                    <p><strong>Flexible weekly engagement that grows with your needs.</strong></p>
-                    <a href="mailto:ardhi@aapgrp.com?subject=Strategic CFO Partnership Inquiry" class="btn btn-primary">Start Partnership</a>
-                </div>
-                
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1582,6 +1567,37 @@
                     <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book a Session</a>
                 </div>
                 
+                <div class="service-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            <path d="m9 14 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Strategic CFO Partnership</h3>
+                    <p>You know your business inside out. I bring the financial strategy to accelerate what you've built. As your integrated partner, I work alongside you to unlock your next stage.</p>
+                    <p><strong>Flexible weekly engagement that grows with your needs.</strong></p>
+                    <button onclick="requestRetainerQuote()" class="btn btn-primary">Request Partnership Quote</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <h3>Project Engagement</h3>
+                    <p>Specific financial deliverables with defined scope and timeline. Perfect for building financial models, investor presentations, or comprehensive business assessments when you need focused expertise.</p>
+                    <p><strong>Fixed scope, measurable outcomes.</strong></p>
+                    <button onclick="requestProjectQuote()" class="btn btn-primary">Request Project Quote</button>
+                </div>
+                
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1593,6 +1609,12 @@
                     <p><strong>Free exploration, genuine insights.</strong></p>
                     <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Start Conversation</a>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(26, 35, 50, 0.1);">
+                <p style="color: var(--text-gray); font-size: 1.1rem;">
+                    Not sure which service fits your needs? Feel free to reach out directly at 
+                    <a href="mailto:ardhi@aapgrp.com" style="color: var(--gold); text-decoration: none; font-weight: 600;">ardhi@aapgrp.com</a>
+                </p>
             </div>
         </div>
     </section>
@@ -2001,6 +2023,84 @@
     </footer>
 
     <script>
+        async function requestRetainerQuote() {
+            const email = prompt('Please enter your email address to receive the Strategic Partnership quotation:');
+            
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            try {
+                const response = await fetch('https://your-n8n-retainer-webhook.com/webhook/retainer-quote', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        serviceType: 'Strategic CFO Partnership',
+                        email: email,
+                        timestamp: new Date().toISOString()
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('Perfect! Your Strategic Partnership quotation will be sent to your email within the next few minutes. Please check your inbox (and spam folder just in case).');
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please send us an email directly at ardhi@aapgrp.com');
+            } finally {
+                button.textContent = originalText;
+                button.disabled = false;
+            }
+        }
+        
+        // Project quote request functionality
+        async function requestProjectQuote() {
+            const email = prompt('Please enter your email address to receive the Project Engagement quotation:');
+            
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            try {
+                const response = await fetch('https://your-n8n-project-webhook.com/webhook/project-quote', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        serviceType: 'Project Engagement',
+                        email: email,
+                        timestamp: new Date().toISOString()
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('Perfect! Your Project Engagement quotation will be sent to your email within the next few minutes. Please check your inbox (and spam folder just in case).');
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please send us an email directly at ardhi@aapgrp.com');
+            } finally {
+                button.textContent = originalText;
+                button.disabled = false;
+            }
+        }
 
         // Animate progress bars when in view
         const resultCards = document.querySelectorAll('.result-card');
