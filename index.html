@@ -1450,18 +1450,24 @@
             height: 100%;
             background-color: rgba(0,0,0,0.5);
             backdrop-filter: blur(5px);
+            overflow-y: auto; /* Enable scrolling */
+            padding: 20px 0; /* Add padding top/bottom */
         }
         
         .modal-content {
             background-color: var(--white);
-            margin: 10% auto;
+            margin: 0 auto; /* Remove top margin, center horizontally */
             padding: 2rem;
             border-radius: 15px;
             width: 90%;
             max-width: 500px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            max-height: calc(100vh - 40px); /* Ensure it fits in viewport */
+            overflow-y: auto; /* Enable internal scrolling if needed */
         }
         
+        /* Rest of your modal CSS stays the same */
         .modal-header {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -1483,16 +1489,18 @@
             font-weight: 600;
         }
         
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 0.8rem;
             border: 2px solid #e1e5e9;
             border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
+            background-color: white;
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
         
-        .form-group input:focus {
+        .form-group input:focus, .form-group select:focus {
             outline: none;
             border-color: var(--gold);
         }
@@ -1511,21 +1519,6 @@
         
         .btn-cancel:hover {
             background: #5a6268;
-        }
-
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            background-color: white;
-        }
-        
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--gold);
         }
         
     </style>
