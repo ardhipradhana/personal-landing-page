@@ -3757,6 +3757,24 @@
             transition: margin-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
     }
+
+    .message-content strong {
+        font-weight: 700;
+        color: inherit;
+    }
+    
+    .bot-message .message-content strong {
+        color: var(--navy);
+    }
+    
+    .user-message .message-content strong {
+        color: white;
+    }
+    
+    .message-content em {
+        font-style: italic;
+        color: inherit;
+    }
     </style>
     
     <script>
@@ -3885,7 +3903,14 @@
             
             const messageContent = document.createElement('div');
             messageContent.className = 'message-content';
-            messageContent.innerHTML = content.replace(/\n/g, '<br>');
+            
+            // Convert markdown-style formatting to HTML
+            let formattedContent = content
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // **bold** to <strong>
+                .replace(/\*(.*?)\*/g, '<em>$1</em>') // *italic* to <em>
+                .replace(/\n/g, '<br>'); // line breaks
+            
+            messageContent.innerHTML = formattedContent;
             
             messageDiv.appendChild(messageContent);
             messagesContainer.appendChild(messageDiv);
