@@ -3248,7 +3248,7 @@
         document.querySelector('.hero').style.transform = 'translateY(0)';
     </script>
 
-<!-- Slide-in Chat Panel -->
+<!-- N8N Chat Widget -->
 <div id="chatWidget" class="chat-widget">
     <div id="chatTrigger" class="chat-trigger">
         <div class="chat-trigger-content">
@@ -3272,11 +3272,7 @@
             </button>
         </div>
         <div class="chat-content">
-            <iframe 
-                id="chatFrame"
-                src="https://montpro.app.n8n.cloud/webhook/2dfcb3c8-4467-4651-b2c9-ffc99e5b4821/chat"
-                frameborder="0">
-            </iframe>
+            <div id="n8n-chat"></div>
         </div>
     </div>
     
@@ -3406,6 +3402,11 @@
     overflow: hidden;
 }
 
+#n8n-chat {
+    width: 100%;
+    height: 100%;
+}
+
 #chatFrame {
     width: 100%;
     height: 100%;
@@ -3480,8 +3481,34 @@
 }
 </style>
 
-<script>
+<script type="module">
+import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize N8N Chat
+    createChat({
+        webhookUrl: 'https://montpro.app.n8n.cloud/webhook/2dfcb3c8-4467-4651-b2c9-ffc99e5b4821/chat',
+        target: '#n8n-chat',
+        mode: 'window',
+        chatInputPlaceholder: 'Ask Monty about strategic CFO services...',
+        loadPreviousSession: true,
+        showWelcomeScreen: false,
+        defaultHeight: '100%',
+        defaultWidth: '100%',
+        theme: {
+            primaryColor: '#DAA520',
+            backgroundColor: '#ffffff',
+            textColor: '#2c3e50',
+            chatWindow: {
+                welcomeScreen: {
+                    title: 'Hi! I\'m Monty 👋',
+                    subtitle: 'I\'m here to help you explore how strategic CFO partnership could accelerate your business.'
+                }
+            }
+        }
+    });
+
+    // Chat panel functionality
     const chatTrigger = document.getElementById('chatTrigger');
     const chatPanel = document.getElementById('chatPanel');
     const chatOverlay = document.getElementById('chatOverlay');
@@ -3519,14 +3546,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape' && chatPanel.classList.contains('active')) {
             closeChatPanel();
         }
-    });
-    
-    // Debug: Check if elements exist
-    console.log('Chat elements found:', {
-        trigger: !!chatTrigger,
-        panel: !!chatPanel,
-        overlay: !!chatOverlay,
-        closeBtn: !!closeChatBtn
     });
 });
 </script>
