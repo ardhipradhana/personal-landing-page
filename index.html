@@ -3358,10 +3358,11 @@
     }
     
     .chat-trigger:hover {
-        transform: translateY(-50%) translateX(calc(100% - 40px));
+        transform: translateY(-50%) translateX(calc(100% - 60px));
         background: linear-gradient(135deg, var(--light-navy) 0%, var(--navy) 100%);
         box-shadow: -12px 0 35px rgba(26, 35, 50, 0.4);
         border-color: #f7d154;
+        padding: 25px 35px 25px 25px; /* Increase right padding for better text space */
     }
     
     .chat-trigger-content {
@@ -3401,13 +3402,7 @@
     }
 
     .chat-trigger::after {
-        content: '💬';
-        position: absolute;
-        top: -10px;
-        left: -15px;
-        font-size: 20px;
-        animation: chatBubble 4s infinite;
-        z-index: 10;
+        display: none;
     }
     
     @keyframes chatBubble {
