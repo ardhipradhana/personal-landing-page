@@ -3005,10 +3005,11 @@
         window.onclick = function(event) {
             const partnershipModal = document.getElementById('quoteModal');
             const projectModal = document.getElementById('projectQuoteModal');
-            if (event.target == partnershipModal) {
+            
+            if (event.target === partnershipModal) {
                 closeModal();
             }
-            if (event.target == projectModal) {
+            if (event.target === projectModal) {
                 closeProjectModal();
             }
         }
