@@ -3417,7 +3417,7 @@
     }
     
     /* Chat Panel */
-    .chat-panel {
+        .chat-panel {
         position: fixed;
         top: 15px;
         right: 15px;
@@ -3425,14 +3425,14 @@
         width: 420px;
         background: white;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-        transform: translateX(100%);
+        transform: translateX(calc(100% + 15px)); /* Move it completely off-screen including the margin */
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
         z-index: 2001;
-        border-radius: 15px 0 15px 15px; /* Rounded except top-right where trigger connects */
+        border-radius: 15px 0 15px 15px;
         overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        /* Remove the border */
     }
     
     .chat-panel.active {
@@ -3730,7 +3730,7 @@
             left: 0;
             width: 100%;
             border-radius: 15px 15px 0 0;
-            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            transform: translateX(100%); /* Full off-screen on mobile */
         }
         
         .chat-header {
