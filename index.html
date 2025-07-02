@@ -1709,6 +1709,204 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Dashboard Styles for Proven Results */
+        .dashboard-container {
+            background: linear-gradient(135deg, var(--light-navy) 0%, #34495e 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-top: 2rem;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .dashboard-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+        }
+        
+        .dashboard-date {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        
+        .dashboard-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .dashboard-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .metric-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .dashboard-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .dashboard-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #f7d154);
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+        
+        .metric-trend {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            color: #10b981;
+        }
+        
+        .dashboard-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .chart-container, .engagements-container {
+            background: rgba(255,255,255,0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .chart-title {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .bar-chart {
+            display: flex;
+            align-items: end;
+            height: 120px;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .bar {
+            background: linear-gradient(0deg, var(--gold), #f7d154);
+            border-radius: 4px 4px 0 0;
+            flex: 1;
+            min-height: 20px;
+            transition: height 1.5s ease-in-out;
+        }
+        
+        .bar:nth-child(1) { height: 60%; }
+        .bar:nth-child(2) { height: 85%; }
+        .bar:nth-child(3) { height: 100%; }
+        .bar:nth-child(4) { height: 90%; }
+        
+        .chart-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .case-study {
+            background: rgba(255,255,255,0.02);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .case-study-title {
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .case-study-desc {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
+        }
+        
+        /* Mobile Responsiveness for Dashboard */
+        @media (max-width: 768px) {
+            .dashboard-metrics {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .dashboard-bottom {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .dashboard-container {
+                padding: 1.5rem;
+            }
+            
+            .metric-value {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .dashboard-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
         
     </style>
 </head>
@@ -2044,55 +2242,88 @@
             <h2 class="section-title">My Proven Results</h2>
             <p class="section-subtitle">Real outcomes from real partnerships. Here's the measurable impact we've achieved together.</p>
             
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 1v22"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <span class="status-indicator"></span>
+                        Client Performance Dashboard
                     </div>
-                    <div class="result-percentage">18%</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-percentage="18"></div>
-                    </div>
-                    <h3>Cost Efficiency</h3>
-                    <p>Delivering the same performance with optimized spending</p>
-                    <span class="result-context">Education Startup</span>
+                    <div class="dashboard-date">Last Updated: Real-time</div>
                 </div>
-                
-                <div class="result-card">
-                    <div class="result-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 3v18h18"/>
-                            <path d="M7 12l3-3 4 4 5-5"/>
-                            <path d="M17 8h4v4"/>
-                        </svg>
+    
+                <div class="dashboard-metrics">
+                    <div class="dashboard-card">
+                        <div class="metric-label">Cost Optimization</div>
+                        <div class="metric-value">-18%</div>
+                        <div class="dashboard-progress-bar">
+                            <div class="dashboard-progress-fill" style="width: 18%;"></div>
+                        </div>
+                        <div class="metric-trend">↗ Efficiency Gained</div>
                     </div>
-                    <div class="result-percentage">13%</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-percentage="13"></div>
+    
+                    <div class="dashboard-card">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">+13%</div>
+                        <div class="dashboard-progress-bar">
+                            <div class="dashboard-progress-fill" style="width: 65%;"></div>
+                        </div>
+                        <div class="metric-trend">↗ Revenue Optimization</div>
                     </div>
-                    <h3>Increased Gross Margin</h3>
-                    <p>Generating higher margins through strategic optimization</p>
-                    <span class="result-context">Multi-location Retail</span>
+    
+                    <div class="dashboard-card">
+                        <div class="metric-label">Cash Runway</div>
+                        <div class="metric-value">14mo</div>
+                        <div class="dashboard-progress-bar">
+                            <div class="dashboard-progress-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="metric-trend">↗ Extended Sustainability</div>
+                    </div>
+    
+                    <div class="dashboard-card">
+                        <div class="metric-label">Cash Conversion Cycle</div>
+                        <div class="metric-value">-17d</div>
+                        <div class="dashboard-progress-bar">
+                            <div class="dashboard-progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <div class="metric-trend">↗ Faster Cash Flow</div>
+                    </div>
                 </div>
-                
-                <div class="result-card">
-                    <div class="result-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12,6 12,12 16,14"/>
-                        </svg>
+    
+                <div class="dashboard-bottom">
+                    <div class="chart-container">
+                        <div class="chart-title">Performance Trajectory</div>
+                        <div class="bar-chart">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Q1</span>
+                            <span>Q2</span>
+                            <span>Q3</span>
+                            <span>Q4</span>
+                        </div>
                     </div>
-                    <div class="result-number">14</div>
-                    <div class="result-unit">months</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-percentage="90"></div>
+    
+                    <div class="engagements-container">
+                        <div class="chart-title">Active Engagements</div>
+                        
+                        <div class="case-study">
+                            <div class="case-study-title">Education Startup</div>
+                            <div class="case-study-desc">18% cost reduction while maintaining performance levels</div>
+                        </div>
+    
+                        <div class="case-study">
+                            <div class="case-study-title">Multi-location Retail</div>
+                            <div class="case-study-desc">13% gross margin improvement through strategic optimization</div>
+                        </div>
+    
+                        <div class="case-study">
+                            <div class="case-study-title">Digital Startup</div>
+                            <div class="case-study-desc">Extended runway to 14 months through cash flow management</div>
+                        </div>
                     </div>
-                    <h3>Extended Runway</h3>
-                    <p>Reduced cash burn through improved financial management</p>
-                    <span class="result-context">Digital Startup</span>
                 </div>
             </div>
         </div>
