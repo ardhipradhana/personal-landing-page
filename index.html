@@ -1955,10 +1955,24 @@
             z-index: 2;
             padding: 0 1rem;
         }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 118px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border: 2px solid var(--navy);
+            border-radius: 50%;
+            z-index: 3;
+        }
         
         .timeline-dot {
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
         .institution-logo {
@@ -1972,6 +1986,8 @@
             background: var(--white);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 4;
         }
         
         .institution-logo:hover {
@@ -2047,6 +2063,10 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .timeline-line {
+                display: none;
+            }
+            
+            .timeline-item::before {
                 display: none;
             }
             
