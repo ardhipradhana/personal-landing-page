@@ -3481,9 +3481,31 @@
 }
 </style>
 
+<!-- Include N8N Chat Script -->
 <script type="module">
 import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
+// Chat panel functionality
+const chatTrigger = document.getElementById('chatTrigger');
+const chatPanel = document.getElementById('chatPanel');
+const chatOverlay = document.getElementById('chatOverlay');
+const closeChatBtn = document.getElementById('closeChat');
+
+function openChatPanel() {
+    chatPanel.classList.add('active');
+    chatOverlay.classList.add('active');
+    if (window.innerWidth > 768) {
+        document.body.classList.add('chat-open');
+    }
+}
+
+function closeChatPanel() {
+    chatPanel.classList.remove('active');
+    chatOverlay.classList.remove('active');
+    document.body.classList.remove('chat-open');
+}
+
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize N8N Chat
     createChat({
@@ -3508,37 +3530,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Chat panel functionality
-    const chatTrigger = document.getElementById('chatTrigger');
-    const chatPanel = document.getElementById('chatPanel');
-    const chatOverlay = document.getElementById('chatOverlay');
-    const closeChatBtn = document.getElementById('closeChat');
-    
-    function openChatPanel() {
-        chatPanel.classList.add('active');
-        chatOverlay.classList.add('active');
-        if (window.innerWidth > 768) {
-            document.body.classList.add('chat-open');
-        }
-    }
-    
-    function closeChatPanel() {
-        chatPanel.classList.remove('active');
-        chatOverlay.classList.remove('active');
-        document.body.classList.remove('chat-open');
-    }
-    
     // Event listeners
     if (chatTrigger) {
         chatTrigger.addEventListener('click', openChatPanel);
+        console.log('Chat trigger listener added');
     }
     
     if (closeChatBtn) {
         closeChatBtn.addEventListener('click', closeChatPanel);
+        console.log('Close button listener added');
     }
     
     if (chatOverlay) {
         chatOverlay.addEventListener('click', closeChatPanel);
+        console.log('Overlay listener added');
     }
     
     // Close chat on escape key
@@ -3547,6 +3552,8 @@ document.addEventListener('DOMContentLoaded', function() {
             closeChatPanel();
         }
     });
+    
+    console.log('Chat widget initialized');
 });
 </script>
 </body>
