@@ -1848,7 +1848,7 @@
         
         .chart-labels {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             margin-top: 0.5rem;
             font-size: 0.7rem;
             color: rgba(255,255,255,0.5);
@@ -1873,6 +1873,23 @@
             font-size: 0.8rem;
             color: rgba(255,255,255,0.7);
             line-height: 1.4;
+        }
+
+        .chart-insights {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .insight-point {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .insight-point:last-child {
+            margin-bottom: 0;
         }
         
         /* Mobile Responsiveness for Dashboard */
@@ -2303,6 +2320,11 @@
                             <span>Q2</span>
                             <span>Q3</span>
                             <span>Q4</span>
+                        </div>
+                        <div class="chart-insights">
+                            <div class="insight-point">• Average ROI improvement: 24% across all engagements</div>
+                            <div class="insight-point">• Client retention rate: 100% year-over-year</div>
+                            <div class="insight-point">• Time to break-even reduced by 6.2 months on average</div>
                         </div>
                     </div>
     
