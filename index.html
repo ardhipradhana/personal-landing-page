@@ -1924,6 +1924,187 @@
                 gap: 0.5rem;
             }
         }
+
+        /* Timeline Styles for Speaking Experience */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            padding: 2rem 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), #f7d154, var(--gold));
+            border-radius: 2px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 33.333%;
+            float: left;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .timeline-dot {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .institution-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--gold);
+            background: var(--white);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .institution-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+        
+        .sbm-logo, .block71-logo {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: center;
+            line-height: 1.1;
+        }
+        
+        .sbm-logo {
+            background: linear-gradient(135deg, #2c5aa0, #1e4080);
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+        
+        .block71-logo {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: var(--white);
+            font-size: 0.6rem;
+        }
+        
+        .online-logo {
+            background: var(--navy);
+        }
+        
+        .online-logo svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .timeline-content {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin: 0 1rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .institution-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .timeline-content p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        /* Clear floats */
+        .timeline-container::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .timeline-container {
+                padding: 1rem 0;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                float: none;
+                margin-bottom: 2rem;
+            }
+            
+            .timeline-item:last-child {
+                margin-bottom: 0;
+            }
+            
+            .timeline-content {
+                margin: 0;
+                min-height: auto;
+                padding: 1.5rem;
+            }
+            
+            .institution-logo {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .online-logo svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .timeline-content {
+                padding: 1.25rem;
+            }
+            
+            .institution-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .sbm-logo, .block71-logo {
+                font-size: 0.6rem;
+            }
+        }
         
     </style>
 </head>
@@ -2351,51 +2532,57 @@
         </div>
     </section>
 
-    <!-- Speaking & Teaching Experience Section -->
+    <!-- Speaking Experience Section -->
     <section id="speaking-experience" class="section speaking-experience">
         <div class="container">
             <h2 class="section-title">Recognized Financial Expert</h2>
             <p class="section-subtitle">Trusted by leading institutions to share financial strategy insights with tomorrow's business leaders.</p>
             
-            <div class="speaking-grid">
-                <div class="speaking-card">
-                    <div class="speaking-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                            <path d="M6 12v5c3 0 5-1 8-1s5 1 8 1v-5"/>
-                        </svg>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <div class="institution-logo sbm-logo">
+                            <span>SBM ITB</span>
+                        </div>
                     </div>
-                    <h3>Guest Lecturer</h3>
-                    <div class="institution">SBM ITB</div>
-                    <p>Teaching financial strategy and corporate finance to students at Indonesia's premier business school.</p>
+                    <div class="timeline-content">
+                        <h3>Guest Lecturer</h3>
+                        <div class="institution-name">SBM ITB</div>
+                        <p>Teaching financial strategy and corporate finance to students at Indonesia's premier business school with AACSB accreditation.</p>
+                    </div>
                 </div>
                 
-                <div class="speaking-card">
-                    <div class="speaking-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <div class="institution-logo block71-logo">
+                            <span>BLOCK71</span>
+                        </div>
                     </div>
-                    <h3>Industry Panelist</h3>
-                    <div class="institution">Financial Health Assessment @ Block71</div>
-                    <p>Sharing insights on corporate financial wellness and strategic decision-making with startup leaders.</p>
+                    <div class="timeline-content">
+                        <h3>Industry Panelist</h3>
+                        <div class="institution-name">Financial Health Assessment @ Block71</div>
+                        <p>Sharing insights on corporate financial wellness and strategic decision-making with startup leaders in a premier tech hub.</p>
+                    </div>
                 </div>
                 
-                <div class="speaking-card">
-                    <div class="speaking-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                            <line x1="8" y1="21" x2="16" y2="21"/>
-                            <line x1="12" y1="17" x2="12" y2="21"/>
-                            <path d="M7 8l5-3 5 3v5l-5 3-5-3z"/>
-                        </svg>
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <div class="institution-logo online-logo">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                                <path d="M7 8l5-3 5 3v5l-5 3-5-3z"/>
+                            </svg>
+                        </div>
                     </div>
-                    <h3>Course Instructor</h3>
-                    <div class="institution">Online Financial Classes</div>
-                    <p>Developing and delivering comprehensive courses on financials and strategic analysis for professionals.</p>
+                    <div class="timeline-content">
+                        <h3>Course Instructor</h3>
+                        <div class="institution-name">Online Financial Classes</div>
+                        <p>Developing and delivering comprehensive courses on financial strategy and analysis for business professionals.</p>
+                    </div>
                 </div>
             </div>
         </div>
