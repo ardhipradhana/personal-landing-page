@@ -1930,18 +1930,17 @@
             position: relative;
             max-width: 1000px;
             margin: 3rem auto 0;
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
         
         .timeline-line {
             position: absolute;
-            top: 50%;
+            top: 120px;
             left: 0;
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--gold), #f7d154, var(--gold));
             border-radius: 2px;
-            transform: translateY(-50%);
             z-index: 1;
         }
         
@@ -1954,11 +1953,12 @@
             float: left;
             text-align: center;
             z-index: 2;
+            padding: 0 1rem;
         }
         
         .timeline-dot {
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
         
         .institution-logo {
@@ -2012,16 +2012,7 @@
         }
         
         .timeline-content {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem 1.5rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            margin: 0 1rem;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            text-align: center;
         }
         
         .timeline-content h3 {
@@ -2055,10 +2046,6 @@
         
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .timeline-container {
-                padding: 1rem 0;
-            }
-            
             .timeline-line {
                 display: none;
             }
@@ -2066,28 +2053,21 @@
             .timeline-item {
                 width: 100%;
                 float: none;
-                margin-bottom: 2rem;
+                margin-bottom: 3rem;
+                padding: 0;
             }
             
             .timeline-item:last-child {
                 margin-bottom: 0;
             }
             
-            .timeline-content {
-                margin: 0;
-                min-height: auto;
-                padding: 1.5rem;
+            .timeline-dot {
+                margin-bottom: 2rem;
             }
             
             .institution-logo {
                 width: 70px;
                 height: 70px;
-                margin-bottom: 1.5rem;
-            }
-            
-            .online-logo svg {
-                width: 28px;
-                height: 28px;
             }
         }
         
