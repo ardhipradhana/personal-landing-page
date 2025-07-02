@@ -1199,6 +1199,7 @@
             grid-template-columns: 1fr auto 1fr;
             align-items: start;
             gap: 1rem;
+            margin-top: 2rem;
         }
         
         .data-side, .strategy-side {
@@ -2126,6 +2127,103 @@
             object-fit: contain;
             border-radius: 50%;
         }
+
+        /* Enhanced Plug-in Section with MontPro */
+        .plug-in-split-enhanced {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 500px;
+        }
+        
+        .plug-in-content {
+            text-align: left;
+            max-width: none;
+        }
+        
+        .montpro-content {
+            text-align: left;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .montpro-title {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .montpro-statement {
+            font-size: 1.8rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .highlight-ai {
+            color: #0077B5;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .montpro-description {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .montpro-cta {
+            margin-top: 2rem;
+        }
+        
+        .montpro-cta .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .plug-in-split-enhanced {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .plug-in-content, .montpro-content {
+                text-align: center;
+            }
+            
+            .montpro-content {
+                padding: 1.5rem;
+            }
+            
+            .plug-in-statement, .montpro-statement {
+                font-size: 1.5rem;
+            }
+            
+            .transformation-visual {
+                gap: 0.8rem;
+                justify-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .montpro-content {
+                padding: 1.25rem;
+            }
+            
+            .plug-in-title, .montpro-title {
+                font-size: 1.8rem;
+            }
+        }
         
     </style>
 </head>
@@ -2269,7 +2367,8 @@
     <!-- Where I Plug In Section -->
     <section id="approach" class="section plug-in">
         <div class="container">
-            <div class="plug-in-split">
+            <div class="plug-in-split-enhanced">
+                <!-- Left Side - Current Content -->
                 <div class="plug-in-content">
                     <h2 class="plug-in-title">Where I Plug In...</h2>
                     <p class="plug-in-statement">
@@ -2281,8 +2380,6 @@
                     <p class="plug-in-description">
                         I plug in when you need financial insights that drive real strategic decisions to drive performance.
                     </p>
-                </div>
-                <div class="plug-in-visual">
                     <div class="transformation-visual">
                         <div class="data-side">
                             <div class="visual-icon">
@@ -2308,6 +2405,22 @@
                             </div>
                             <span>Strategy</span>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side - MontPro -->
+                <div class="montpro-content">
+                    <h2 class="montpro-title">Beyond Consulting</h2>
+                    <p class="montpro-statement">
+                        Building the future of 
+                        <span class="highlight-ai">AI-powered financial tools</span> 
+                        with MontPro.
+                    </p>
+                    <p class="montpro-description">
+                        When I'm not optimizing your financials, I'm developing intelligent solutions that make financial analysis faster, smarter, and more accessible for businesses.
+                    </p>
+                    <div class="montpro-cta">
+                        <a href="https://www.montpro.xyz" class="btn btn-secondary" target="_blank">Explore MontPro</a>
                     </div>
                 </div>
             </div>
