@@ -3485,9 +3485,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatTrigger = document.getElementById('chatTrigger');
     const chatPanel = document.getElementById('chatPanel');
     const chatOverlay = document.getElementById('chatOverlay');
-    const closeChat = document.getElementById('closeChat');
+    const closeChatBtn = document.getElementById('closeChat');
     
-    function openChat() {
+    function openChatPanel() {
         chatPanel.classList.add('active');
         chatOverlay.classList.add('active');
         if (window.innerWidth > 768) {
@@ -3495,21 +3495,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    function closeChat() {
+    function closeChatPanel() {
         chatPanel.classList.remove('active');
         chatOverlay.classList.remove('active');
         document.body.classList.remove('chat-open');
     }
     
-    chatTrigger.addEventListener('click', openChat);
-    closeChat.addEventListener('click', closeChat);
-    chatOverlay.addEventListener('click', closeChat);
+    // Event listeners
+    if (chatTrigger) {
+        chatTrigger.addEventListener('click', openChatPanel);
+    }
+    
+    if (closeChatBtn) {
+        closeChatBtn.addEventListener('click', closeChatPanel);
+    }
+    
+    if (chatOverlay) {
+        chatOverlay.addEventListener('click', closeChatPanel);
+    }
     
     // Close chat on escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && chatPanel.classList.contains('active')) {
-            closeChat();
+            closeChatPanel();
         }
+    });
+    
+    // Debug: Check if elements exist
+    console.log('Chat elements found:', {
+        trigger: !!chatTrigger,
+        panel: !!chatPanel,
+        overlay: !!chatOverlay,
+        closeBtn: !!closeChatBtn
     });
 });
 </script>
