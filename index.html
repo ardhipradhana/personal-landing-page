@@ -3001,18 +3001,20 @@
             }
         });
         
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const partnershipModal = document.getElementById('quoteModal');
-            const projectModal = document.getElementById('projectQuoteModal');
-            
-            if (event.target === partnershipModal) {
-                closeModal();
-            }
-            if (event.target === projectModal) {
-                closeProjectModal();
-            }
-        }
+        // Close modal when clicking outside - improved version
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('click', function(event) {
+                const partnershipModal = document.getElementById('quoteModal');
+                const projectModal = document.getElementById('projectQuoteModal');
+                
+                if (event.target === partnershipModal) {
+                    closeModal();
+                }
+                if (event.target === projectModal) {
+                    closeProjectModal();
+                }
+            });
+        });
 
         // Custom notification system
         function showNotification(title, message, type = 'success') {
