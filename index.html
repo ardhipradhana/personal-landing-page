@@ -3265,7 +3265,7 @@
             <!-- Chat Header -->
             <div class="chat-header">
                 <div class="chat-header-info">
-                    <div class="chat-title">💬 Strategic CFO Assistant</div>
+                    <div class="chat-title">AI Strategic CFO Assistant</div>
                     <div class="chat-subtitle">Chat with Monty</div>
                 </div>
                 <button id="closeChat" class="close-chat-btn">
@@ -3280,7 +3280,7 @@
                 <div class="welcome-message">
                     <div class="message bot-message">
                         <div class="message-content">
-                            👋 Hi! I'm Monty, Ardhi's AI assistant.<br><br>
+                            Hi! I'm Monty, Ardhi's AI assistant.<br><br>
                             I'm here to help you explore how strategic CFO partnership could accelerate your business. What brings you here today?
                         </div>
                     </div>
@@ -3795,9 +3795,23 @@
                 }
                 
                 const data = await response.json();
+                console.log('Backend response:', data); // Debug log
+                
+                // Handle the array format with output property
+                let botMessage = 'I apologize, but I encountered an error. Please email ardhi@aapgrp.com for assistance.';
+                
+                if (Array.isArray(data) && data.length > 0 && data[0].output) {
+                    botMessage = data[0].output;
+                } else if (data.output) {
+                    botMessage = data.output;
+                } else if (data.message) {
+                    botMessage = data.message;
+                } else if (data.response) {
+                    botMessage = data.response;
+                }
                 
                 // Add bot response
-                this.addMessage(data.message || data.response || 'I apologize, but I encountered an error. Please email ardhi@aapgrp.com for assistance.', 'bot');
+                this.addMessage(botMessage, 'bot');
                 
             } catch (error) {
                 console.error('Chat error:', error);
