@@ -3710,15 +3710,16 @@
             min-width: auto;
             width: 56px; /* Fixed size */
             height: 56px;
-            box-shadow: 0 6px 25px rgba(26, 35, 50, 0.4);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%); 
+            box-shadow: 0 6px 25px rgba(26, 35, 50, 0.4); 
             border: none;
         }
         
         .chat-trigger:hover {
             transform: scale(1.05);
-            min-width: auto;
-            padding: 16px;
-            border: none;
+            background: linear-gradient(135deg, var(--light-navy) 0%, var(--navy) 100%);
+            box-shadow: 0 8px 30px rgba(26, 35, 50, 0.5);
+            border: none; /* Keep border removed on hover */
         }
         
         .chat-trigger-content {
@@ -3739,6 +3740,7 @@
         .chat-trigger-content svg {
             width: 24px;
             height: 24px;
+            fill: white;
         }
         
         .chat-panel {
@@ -3780,6 +3782,19 @@
         
         .message-content {
             max-width: 90%;
+        }
+
+        .chat-trigger::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--gold), #f7d154);
+            border-radius: 50px;
+            z-index: -1;
+            animation: chatPulse 3s infinite;
         }
     }
     
