@@ -3050,6 +3050,14 @@
                         'success'
                     );
                     closeModal();
+
+                    // Add conversion tracking
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17303671072/myV5COeHtOkaEKCihLtA',
+                        'value': 1.0,
+                        'currency': 'IDR'
+                    });
+                    
                 } else {
                     throw new Error('Network response was not ok');
                 }
@@ -3106,6 +3114,13 @@
                         'success'
                     );
                     closeProjectModal();
+
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17303671072/myV5COeHtOkaEKCihLtA',
+                        'value': 1.0,
+                        'currency': 'IDR'
+                    });
+                    
                 } else {
                     throw new Error('Network response was not ok');
                 }
