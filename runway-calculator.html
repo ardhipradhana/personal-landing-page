@@ -1322,23 +1322,23 @@
                 timelineY += 8;
             });
             
-            // Key Insights Box
+            // Key Insights Box (replace the existing Key Insights section)
             doc.setFillColor(255, 248, 220);
-            doc.roundedRect(15, 110, 180, 35, 3, 3, 'F');
+            doc.roundedRect(15, 110, 180, 40, 3, 3, 'F');
             
             doc.setTextColor(...navy);
             doc.setFontSize(12);
             doc.setFont('helvetica', 'bold');
-            doc.text('Key Insights for Your Business', 20, 125);
+            doc.text('Key Insights for Your Business', 25, 125);
             
             doc.setFontSize(9);
             doc.setFont('helvetica', 'normal');
             doc.setTextColor(...textGray);
-            doc.text(`With ${runwayMonths} months of current runway, you have a ${runwayMonths < 6 ? 'critical' : runwayMonths < 12 ? 'moderate' : 'healthy'} cash position.`, 20, 135);
-            doc.text('The strategies above could potentially extend your runway by 6-10 additional months,', 20, 142);
-            doc.text('giving you breathing room to execute growth initiatives and secure additional funding.', 20, 149);
+            doc.text(`With ${runwayMonths} months of current runway, you have a ${runwayMonths < 6 ? 'critical' : runwayMonths < 12 ? 'moderate' : 'healthy'} cash position.`, 25, 135);
+            doc.text('The strategies above could potentially extend your runway by 6-10 additional months,', 25, 142);
+            doc.text('giving you breathing room to execute growth initiatives and secure additional funding.', 25, 149);
             
-            // Contact Section with comprehensive CTAs
+            // Contact Section with clickable CTAs (replace the existing Contact section)
             doc.setFillColor(...navy);
             doc.rect(0, 160, 210, 120, 'F');
             
@@ -1351,22 +1351,22 @@
             doc.setFont('helvetica', 'normal');
             doc.text('Choose how you\'d like to get started:', 20, 185);
             
-            // Service options
+            // Service options with clickable links
             const services = [
                 {
                     title: 'Free Discovery Conversation (30 min)',
                     desc: 'Explore what financial strategy support could accelerate your business',
-                    cta: 'calendly.com/ardhipradhana/introductory'
+                    url: 'https://calendly.com/ardhipradhana/introductory'
                 },
                 {
                     title: 'Strategic CFO Partnership',
                     desc: 'Ongoing financial leadership that scales with your growth',
-                    cta: 'ardhipradhana.com/services'
+                    url: 'https://ardhipradhana.com/#services'
                 },
                 {
                     title: 'Direct Contact',
                     desc: 'Have specific questions? Email me personally',
-                    cta: 'ardhi@aapgrp.com'
+                    url: 'mailto:ardhi@aapgrp.com'
                 }
             ];
             
@@ -1381,7 +1381,10 @@
                 doc.setFontSize(9);
                 doc.setFont('helvetica', 'normal');
                 doc.text(service.desc, 30, serviceY + 5);
-                doc.text(service.cta, 30, serviceY + 12);
+                
+                // Make the URL clickable
+                doc.setTextColor(200, 200, 255);
+                doc.textWithLink(service.url, 30, serviceY + 12, { url: service.url });
                 
                 serviceY += 20;
             });
