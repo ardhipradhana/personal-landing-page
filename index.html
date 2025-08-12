@@ -1024,6 +1024,106 @@
             color: var(--gold);
         }
 
+        /* Pricing Indicators */
+        .pricing-indicator {
+            text-align: center;
+            padding: 1rem 0;
+            margin: 1rem 0;
+            border-top: 1px solid rgba(218, 165, 32, 0.2);
+            border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+            background: rgba(218, 165, 32, 0.05);
+            border-radius: 8px;
+        }
+        
+        .price-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .price-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        
+        .price-value.free {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .price-duration {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+        
+        .pricing-indicator.free {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+        
+        .pricing-indicator.free .price-label {
+            display: none;
+        }
+
+        /* FAQ Section Styles */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(26, 35, 50, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 35, 50, 0.15);
+        }
+        
+        .faq-question {
+            color: var(--navy);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .faq-answer {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .faq-item {
+                padding: 1.5rem;
+            }
+            
+            .faq-question {
+                font-size: 1.1rem;
+            }
+        }
+
         /* Proven Results Section */
         .proven-results {
             background: var(--navy);
@@ -2854,6 +2954,11 @@
                         <p>CFO-level insight for specific decisions. Perfect for optimizing models or navigating strategic crossroads.</p>
                         <p><strong>One focused session, maximum clarity.</strong></p>
                     </div>
+                    <div class="pricing-indicator">
+                        <span class="price-label">Starting at</span>
+                        <span class="price-value">$750</span>
+                        <span class="price-duration">per session</span>
+                    </div>
                     <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book Yours</a>
                 </div>
                 
@@ -2870,6 +2975,11 @@
                         <h3>Strategic CFO Partnership</h3>
                         <p>Integrated financial strategy that accelerates what you've built. Work with me to unlock your next growth stage.</p>
                         <p><strong>Weekly engagement that scales with you.</strong></p>
+                    </div>
+                    <div class="pricing-indicator">
+                        <span class="price-label">Starting at</span>
+                        <span class="price-value">$2,500</span>
+                        <span class="price-duration">per month</span>
                     </div>
                     <button onclick="openModal('retainer')" class="btn btn-primary">Get Quote</button>
                 </div>
@@ -2889,6 +2999,11 @@
                         <p>Specific deliverables with defined scope. Build budget & models or comprehensive assessments.</p>
                         <p><strong>Fixed scope, measurable outcomes.</strong></p>
                     </div>
+                    <div class="pricing-indicator">
+                        <span class="price-label">Starting at</span>
+                        <span class="price-value">$1,500</span>
+                        <span class="price-duration">per project</span>
+                    </div>
                     <button onclick="openProjectModal()" class="btn btn-primary">Get Quote</button>
                 </div>
                 
@@ -2902,6 +3017,10 @@
                         <h3>Discovery Conversation</h3>
                         <p>Explore what level of financial strategy support would accelerate your business in a no-pressure conversation.</p>
                         <p><strong>Free exploration, genuine insights.</strong></p>
+                    </div>
+                    <div class="pricing-indicator free">
+                        <span class="price-value free">FREE</span>
+                        <span class="price-duration">30-minute call</span>
                     </div>
                     <a href="https://calendly.com/ardhipradhana/introductory" class="btn btn-primary" target="_blank">Discover Now</a>
                 </div>
@@ -3020,10 +3139,143 @@
         </div>
     </section>
 
-    <!-- Proven Results Section -->
+    <!-- Quick Results Section -->
+    <section class="section" style="background: var(--light-blue-gray); padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Quick Results</h2>
+            <p class="section-subtitle">What Clients Actually Experience</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Retail Expansion Card -->
+                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--gold);">
+                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;"></span> RETAIL EXPANSION
+                    </h3>
+                    <ul style="list-style: none; padding: 0; color: var(--text-gray);">
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            Scaled from 3 to 8 locations in 12 months
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            Negotiated 30% better supplier payment terms
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            Maintained healthy P&L across all outlets
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Tech Runway Card -->
+                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--gold);">
+                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;"></span> TECH RUNWAY EXTENSION
+                    </h3>
+                    <ul style="list-style: none; padding: 0; color: var(--text-gray);">
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            Extended cash runway by 8+ months
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            Secured better financing terms (2B IDR saved/year)
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            Built investor-ready financial models
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Typical Outcomes Card -->
+                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--gold);">
+                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;"></span> TYPICAL OUTCOMES
+                    </h3>
+                    <ul style="list-style: none; padding: 0; color: var(--text-gray);">
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            15-20% reduction in operational costs
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            30-45 days improvement in cash conversion
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
+                            2-3x faster fundraising preparation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(218, 165, 32, 0.1); border-radius: 15px;">
+                <p style="color: var(--navy); font-size: 1.2rem; margin-bottom: 1.5rem;">
+                    <strong>These are patterns across all engagements.</strong><br>
+                    Your specific results will depend on your unique situation and goals.
+                </p>
+                <a href="#availability" class="btn btn-primary">Let's Discuss Your Potential</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">My Client Testimonials</h2>
+            <p class="section-subtitle">Here's what partners say about working together to transform their financial strategy.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Working with Pak Ardhi has been a pleasure. He has helped us optimize our financial operations and provided valuable strategic insights. His expertise and guidance have significantly improved our financial performance and decision-making processes. We highly recommend his services to any company looking to enhance their financial strategy."</p>
+                    <div class="testimonial-author">
+                        <strong>Stephanie Octavia</strong>
+                        <span>CEO, Digital Skola</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Ardhi's strategic approach to our expansion has been invaluable. He helped us scale from 3 to 8 outlets while maintaining healthy P&L ratios across all locations. His ability to spot potential financial bottlenecks before they became problems saved us months of headaches. Working with him feels like having a seasoned CFO who truly understands retail operations."</p>
+                    <div class="testimonial-author">
+                        <strong>Anonymous (Confidential Agreement in place)</strong>
+                        <span>Partner, Multi-location Retail Chain</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"We were facing a cash crunch that threatened our growth plans. Ardhi didn't just identify the root causes—he built us a comprehensive cash flow model that gave us clarity for the next 18 months. His work on our pitch deck was exceptional, helping us present our financials in a way that resonated with investors. He's the strategic finance partner every SaaS founder needs."</p>
+                    <div class="testimonial-author">
+                        <strong>Anonymous (Confidential Agreement in place)</strong>
+                        <span>Founder, Custom SaaS Solutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Results Section -->
     <section id="proven-results" class="section proven-results">
         <div class="container">
-            <h2 class="section-title">My Proven Results</h2>
+            <h2 class="section-title">Detailed Performance Metrics</h2>
             <p class="section-subtitle">Real outcomes from real partnerships. Here's the measurable impact we've achieved together.</p>
             
             <div class="dashboard-container">
@@ -3168,14 +3420,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section testimonials">
-        <div class="container">
-            <h2 class="section-title">My Client Testimonials</h2>
-            <p class="section-subtitle">Here's what partners say about working together to transform their financial strategy.</p>
-            
-            <div class="testimonials-grid">
+
+    <!-- Remove this duplicate -->
                 <div class="testimonial-card">
                     <div class="quote-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3221,86 +3467,7 @@
         </div>
     </section>
 
-    <!-- Results Snapshot Section -->
-    <section class="section" style="background: var(--light-blue-gray); padding: 4rem 0;">
-        <div class="container">
-            <h2 class="section-title">Results Snapshot</h2>
-            <p class="section-subtitle">What Clients Actually Experience</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <!-- Retail Expansion Card -->
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--gold);">
-                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 1.5rem;"></span> RETAIL EXPANSION
-                    </h3>
-                    <ul style="list-style: none; padding: 0; color: var(--text-gray);">
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            Scaled from 3 to 8 locations in 12 months
-                        </li>
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            Negotiated 30% better supplier payment terms
-                        </li>
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            Maintained healthy P&L across all outlets
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Tech Runway Card -->
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--gold);">
-                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 1.5rem;"></span> TECH RUNWAY EXTENSION
-                    </h3>
-                    <ul style="list-style: none; padding: 0; color: var(--text-gray);">
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            Extended cash runway by 8+ months
-                        </li>
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            Secured better financing terms (2B IDR saved/year)
-                        </li>
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            Built investor-ready financial models
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Typical Outcomes Card -->
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 4px solid var(--gold);">
-                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 1.5rem;"></span> TYPICAL OUTCOMES
-                    </h3>
-                    <ul style="list-style: none; padding: 0; color: var(--text-gray);">
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            15-20% reduction in operational costs
-                        </li>
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            30-45 days improvement in cash conversion
-                        </li>
-                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">✓</span>
-                            2-3x faster fundraising preparation
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(218, 165, 32, 0.1); border-radius: 15px;">
-                <p style="color: var(--navy); font-size: 1.2rem; margin-bottom: 1.5rem;">
-                    <strong>These are patterns across all engagements.</strong><br>
-                    Your specific results will depend on your unique situation and goals.
-                </p>
-                <a href="#availability" class="btn btn-primary">Let's Discuss Your Potential</a>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Insights Section -->
     <section id="insights" class="section insights">
@@ -3412,11 +3579,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="insights-buttons">
-                <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-primary" target="_blank">Read My Latest Insights</a>
-                <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7313159212807659520" class="btn btn-primary" target="_blank">Join the Weekly Newsletter</a>
-            </div>
         </div>
     </section>
 
@@ -3473,6 +3635,68 @@
                     Follow on LinkedIn
                 </a>
                 <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7313159212807659520" class="btn btn-primary" target="_blank">Subscribe to Newsletter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section" style="background: var(--cool-light-gray); padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about working with a Strategic CFO Partner</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">How quickly can we start seeing results?</h3>
+                    <p class="faq-answer">Most clients see actionable insights within the first week and measurable improvements within 30 days. The initial assessment usually reveals 2-3 immediate optimization opportunities that can be implemented right away.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What if my business is too small or too large?</h3>
+                    <p class="faq-answer">I work with businesses from $500K to $50M+ revenue. The strategies and frameworks scale with your size. Whether you're a startup needing foundational systems or a growth company requiring sophisticated analysis, the approach adapts to your specific needs.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How is this different from hiring a full-time CFO?</h3>
+                    <p class="faq-answer">You get senior-level expertise without the $200K+ salary, benefits, and equity costs. Plus, you benefit from cross-industry experience and proven frameworks that I've refined across multiple businesses. It's strategic partnership, not just employment.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What industries do you work with?</h3>
+                    <p class="faq-answer">I specialize in SaaS, retail, education, and service businesses. However, financial principles are universal. If you're generating revenue and want to optimize it, we can work together regardless of your industry.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you work with companies outside Indonesia?</h3>
+                    <p class="faq-answer">Absolutely. I work with international clients regularly. All services are delivered remotely with flexible scheduling to accommodate different time zones. The financial strategies are globally applicable.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What's included in the Strategic CFO Partnership?</h3>
+                    <p class="faq-answer">Weekly strategic sessions, financial analysis and reporting, budget planning and forecasting, investor relations support, cash flow management, and ongoing advisory on major financial decisions. Think of it as having a CFO on retainer.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Can you help prepare for fundraising?</h3>
+                    <p class="faq-answer">Yes, this is one of my specialties. I'll help build investor-ready financial models, create compelling pitch decks with strong financial narratives, and prepare you for investor meetings. I've supported deals totaling $90M+.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What if I'm not satisfied with the results?</h3>
+                    <p class="faq-answer">I stand behind my work. If you're not completely satisfied with your strategic session within the first 30 minutes, you pay nothing. For ongoing partnerships, we can adjust the scope or part ways with 30 days notice.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How do I know which service is right for me?</h3>
+                    <p class="faq-answer">Start with the free Discovery Conversation. We'll discuss your specific challenges and goals, then I'll recommend the best approach. No pressure, just honest guidance on what would accelerate your business most.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(218, 165, 32, 0.1); border-radius: 15px;">
+                <p style="color: var(--navy); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    <strong>Still have questions?</strong> I read every email personally and respond within 24 hours.
+                </p>
+                <a href="mailto:ardhi@aapgrp.com" class="btn btn-primary">Ask Me Directly</a>
             </div>
         </div>
     </section>
