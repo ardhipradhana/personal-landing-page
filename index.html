@@ -289,6 +289,146 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        
+        /* Community Stats Grid */
+        .community-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 3rem auto;
+            max-width: 900px;
+        }
+        
+        .community-stat-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .community-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), #f7d154);
+        }
+        
+        .community-stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .community-stat-card .stat-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gold), #f7d154);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+        }
+        
+        .community-stat-card .stat-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: var(--navy);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .community-stat-card .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .community-stat-card .stat-label {
+            color: var(--text-gray);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: 0;
+            line-height: 1.3;
+        }
+        
+        .community-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .community-buttons .btn {
+            min-width: 200px;
+            justify-content: center;
+        }
+        
+        .insights-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .insights-buttons .btn {
+            min-width: 220px;
+            justify-content: center;
+        }
+        
+        /* Responsive design for community stats */
+        @media (max-width: 768px) {
+            .community-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                max-width: 400px;
+            }
+            
+            .community-stat-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .community-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .community-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .insights-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .insights-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .community-stats-grid {
+                max-width: 700px;
+                gap: 2rem;
+            }
+        }
 
         .testimonial-preview {
             background: rgba(218, 165, 32, 0.05);
@@ -494,7 +634,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%; /* Add this */
+            height: 100%;
+            min-height: 420px; /* Ensure consistent height */
         }
 
         .service-card:hover {
@@ -535,7 +676,18 @@
 
         .service-card p {
             color: var(--text-gray);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allow content to expand */
+        }
+        
+        .service-card p:last-of-type {
+            margin-bottom: 0; /* Remove margin from last paragraph */
+        }
+        
+        .service-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         /* What I Help With Section */
@@ -808,9 +960,20 @@
         }
         
         .service-card .btn {
-            margin: 0 auto;
+            margin: 1.5rem auto 0 auto;
             display: block;
-            width: fit-content;
+            width: 200px; /* Fixed width for consistency */
+            text-align: center;
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card .btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
         }
 
         /* Featured Service Card and Popular Badge */
@@ -2686,9 +2849,11 @@
                             <polyline points="12,6 12,12 16,14"/>
                         </svg>
                     </div>
-                    <h3>On-Demand Session</h3>
-                    <p>CFO-level insight for specific decisions. Perfect for optimizing models or navigating strategic crossroads.</p>
-                    <p><strong>One focused session, maximum clarity.</strong></p>
+                    <div class="service-card-content">
+                        <h3>On-Demand Session</h3>
+                        <p>CFO-level insight for specific decisions. Perfect for optimizing models or navigating strategic crossroads.</p>
+                        <p><strong>One focused session, maximum clarity.</strong></p>
+                    </div>
                     <a href="https://calendly.com/ardhipradhana" class="btn btn-primary" target="_blank">Book Yours</a>
                 </div>
                 
@@ -2701,9 +2866,11 @@
                             <path d="m9 14 2 2 4-4"/>
                         </svg>
                     </div>
-                    <h3>Strategic CFO Partnership</h3>
-                    <p>Integrated financial strategy that accelerates what you've built. Work with me to unlock your next growth stage.</p>
-                    <p><strong>Weekly engagement that scales with you.</strong></p>
+                    <div class="service-card-content">
+                        <h3>Strategic CFO Partnership</h3>
+                        <p>Integrated financial strategy that accelerates what you've built. Work with me to unlock your next growth stage.</p>
+                        <p><strong>Weekly engagement that scales with you.</strong></p>
+                    </div>
                     <button onclick="openModal('retainer')" class="btn btn-primary">Get Quote</button>
                 </div>
                 
@@ -2717,9 +2884,11 @@
                             <polyline points="10,9 9,9 8,9"/>
                         </svg>
                     </div>
-                    <h3>Project Engagement</h3>
-                    <p>Specific deliverables with defined scope. Build budget & models or comprehensive assessments.</p>
-                    <p><strong>Fixed scope, measurable outcomes.</strong></p>
+                    <div class="service-card-content">
+                        <h3>Project Engagement</h3>
+                        <p>Specific deliverables with defined scope. Build budget & models or comprehensive assessments.</p>
+                        <p><strong>Fixed scope, measurable outcomes.</strong></p>
+                    </div>
                     <button onclick="openProjectModal()" class="btn btn-primary">Get Quote</button>
                 </div>
                 
@@ -2729,9 +2898,11 @@
                             <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
                         </svg>
                     </div>
-                    <h3>Discovery Conversation</h3>
-                    <p>Explore what level of financial strategy support would accelerate your business in a no-pressure conversation.</p>
-                    <p><strong>Free exploration, genuine insights.</strong></p>
+                    <div class="service-card-content">
+                        <h3>Discovery Conversation</h3>
+                        <p>Explore what level of financial strategy support would accelerate your business in a no-pressure conversation.</p>
+                        <p><strong>Free exploration, genuine insights.</strong></p>
+                    </div>
                     <a href="https://calendly.com/ardhipradhana/introductory" class="btn btn-primary" target="_blank">Discover Now</a>
                 </div>
             </div>
@@ -3242,7 +3413,7 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 2rem;">
+            <div class="insights-buttons">
                 <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-primary" target="_blank">Read My Latest Insights</a>
                 <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7313159212807659520" class="btn btn-primary" target="_blank">Join the Weekly Newsletter</a>
             </div>
@@ -3255,27 +3426,47 @@
             <h2 class="section-title">Join My Growing CFO Community</h2>
             <p class="section-subtitle">Where Strategic Finance Meets Startup Growth</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--navy); margin-bottom: 0.5rem;">2,000+</div>
-                    <div style="color: var(--text-gray); font-size: 0.95rem;">Finance Leaders Connected</div>
+            <div class="community-stats-grid">
+                <div class="community-stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">2,000+</div>
+                    <div class="stat-label">Finance Leaders Connected</div>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--navy); margin-bottom: 0.5rem;">300+</div>
-                    <div style="color: var(--text-gray); font-size: 0.95rem;">Founders Reading Weekly Insights</div>
+                <div class="community-stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.828 14.828a4 4 0 0 1-5.656 0"/>
+                            <path d="M9 9a3 3 0 1 1 6 0c0 .83-.176 1.618-.494 2.33l-.006.012-.006.012-.006.012a3 3 0 0 1-5.986 0l-.006-.012-.006-.012-.006-.012A3 3 0 0 1 9 9z"/>
+                            <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Founders Reading Weekly</div>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--navy); margin-bottom: 0.5rem;">50+</div>
-                    <div style="color: var(--text-gray); font-size: 0.95rem;">Financial Strategy Posts This Year</div>
-                </div>
-                <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--navy); margin-bottom: 0.5rem;">Weekly</div>
-                    <div style="color: var(--text-gray); font-size: 0.95rem;">Real CFO Perspectives</div>
+                <div class="community-stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Strategy Posts This Year</div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-linkedin" target="_blank" style="margin-right: 1rem;">
+            <div class="community-buttons">
+                <a href="https://www.linkedin.com/in/ardhipradhana" class="btn btn-linkedin" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
