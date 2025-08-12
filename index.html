@@ -86,9 +86,9 @@
             color: var(--gold);
         }
 
-        /* Hero Section */
+        /* Hero Section - Redesigned */
         .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             color: var(--white);
             min-height: 100vh;
             display: flex;
@@ -99,46 +99,244 @@
             box-sizing: border-box;
         }
 
+        /* Animated gradient overlay */
         .hero::before {
             content: '';
             position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(218, 165, 32, 0.1) 0%, transparent 70%);
+            animation: gradientShift 15s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(10%, -10%) scale(1.1); }
+            50% { transform: translate(-10%, 10%) scale(0.9); }
+            75% { transform: translate(5%, 5%) scale(1.05); }
+        }
+
+        /* Floating geometric shapes */
+        .hero-shapes {
+            position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(244,162,97,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.03;
+        }
+
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, var(--gold), transparent);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 10%;
+            right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #3B82F6, transparent);
+            border-radius: 50%;
+            bottom: 10%;
+            left: -50px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(90deg, #10B981, transparent);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            top: 50%;
+            right: 20%;
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            33% { transform: translateY(-30px) translateX(20px); }
+            66% { transform: translateY(30px) translateX(-20px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.2), rgba(218, 165, 32, 0.1));
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-badge .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 800;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #3B82F6, #10B981);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight-text {
+            background: linear-gradient(135deg, var(--gold) 0%, #f7d154 50%, var(--gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            background-size: 200% auto;
+            animation: shimmerText 3s linear infinite;
+        }
+
+        @keyframes shimmerText {
+            to { background-position: 200% center; }
+        }
+
+        .hero h1 .price-comparison {
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .price-old {
+            color: #64748b;
+            text-decoration: line-through;
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        .price-new {
+            color: var(--gold);
+            font-size: 1.1em;
+            font-weight: 900;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #e2e8f0;
+            font-size: 1.05rem;
+        }
+
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--gold), #f7d154);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-check svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--navy);
+            stroke-width: 3;
         }
 
         .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            color: #fbbf24;
+            font-weight: 600;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .urgency-icon {
+            animation: shake 2s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
         }
 
         .cta-buttons {
@@ -148,39 +346,298 @@
         }
 
         .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background: var(--gold);
+            background: linear-gradient(135deg, var(--gold), #f7d154);
             color: var(--navy);
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
         }
 
         .btn-primary:hover {
-            background: #B8860B;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(244, 162, 97, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(218, 165, 32, 0.5);
+        }
+
+        .btn-primary .btn-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover .btn-arrow {
+            transform: translateX(5px);
         }
 
         .btn-secondary {
-            background: var(--gold);
-            color: var(--navy);
-            border: 2px solid var(--gold);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            border: 2px solid rgba(218, 165, 32, 0.5);
+            backdrop-filter: blur(10px);
         }
         
         .btn-secondary:hover {
-            background: var(--navy);
+            background: rgba(218, 165, 32, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(218, 165, 32, 0.3);
+        }
+
+        /* Hero Right Side - Stats */
+        .hero-right {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .stats-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), #f7d154, var(--gold));
+            background-size: 200% auto;
+            animation: shimmerBar 3s linear infinite;
+        }
+
+        @keyframes shimmerBar {
+            to { background-position: 200% center; }
+        }
+
+        .stats-title {
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(218, 165, 32, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(218, 165, 32, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(218, 165, 32, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold), #f7d154);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonial-preview {
+            background: rgba(218, 165, 32, 0.05);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            color: #cbd5e1;
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), #f7d154);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
             color: var(--white);
-            border: 2px solid var(--navy);
-            transform: translateY(-2px);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .author-title {
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        /* Hero Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-left {
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .hero-badge {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-features {
+                align-items: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .hero-right {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .shape-1 { display: none; }
+            .shape-2 { opacity: 0.02; }
+            .shape-3 { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats-container {
+                padding: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .stats-container {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
         }
 
         /* Section Styles */
@@ -2327,15 +2784,120 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
+        <!-- Animated Background Shapes -->
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+
         <div class="hero-content">
-            <h1>Why Hire a Full-Time CFO at 80M+/month<br>When You Can Get Strategic CFO Excellence at 15-40M?</h1>
-            <div class="hero-subtitle">Get the fundraising experience, strategic insights, and financial leadership your startup needs—without the full-time overhead.</div>
-            <p class="hero-description">
-                ⚡ Only 3 spots available for 2025 retainer partnerships.
-            </p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Claim Your Spot</a>
-                <a href="#services" class="btn btn-secondary">See How It Works</a>
+            <!-- Left Content -->
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Strategic CFO Partner</span>
+                </div>
+                
+                <h1>
+                    Why Hire a Full-Time CFO at 
+                    <span class="price-old">80M+/month</span>
+                    <span class="price-comparison">
+                        When You Can Get 
+                        <span class="highlight-text">Strategic Excellence</span>
+                        at <span class="price-new">15-40M?</span>
+                    </span>
+                </h1>
+                
+                <div class="hero-subtitle">
+                    Get the fundraising experience, strategic insights, and financial leadership your startup needs—without the full-time overhead.
+                </div>
+
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span>15+ Years Global Finance Experience</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span>$90M+ in Successful M&A Deals</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span>Proven Startup & Enterprise Success</span>
+                    </div>
+                </div>
+
+                <p class="hero-description">
+                    <span class="urgency-icon">⚡</span>
+                    Only 3 spots available for 2025 retainer partnerships
+                </p>
+
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Claim Your Spot
+                        <span class="btn-arrow">→</span>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        See How It Works
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Content - Stats & Trust Indicators -->
+            <div class="hero-right">
+                <div class="stats-container">
+                    <div class="stats-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Proven Track Record
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">$90M+</span>
+                            <span class="stat-label">M&A Managed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Locations Managed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">60%</span>
+                            <span class="stat-label">Cost Savings</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-preview">
+                        <div class="testimonial-quote">
+                            "Ardhi transformed our financial operations and helped us achieve clarity we never had before. His strategic insights were invaluable."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <div class="author-name">John Doe</div>
+                                <div class="author-title">CEO, Tech Startup</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
