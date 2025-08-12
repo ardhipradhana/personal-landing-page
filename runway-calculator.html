@@ -1322,9 +1322,9 @@
                 timelineY += 8;
             });
             
-            // Key Insights Box (replace the existing Key Insights section)
+            // Key Insights Box - properly sized and positioned
             doc.setFillColor(255, 248, 220);
-            doc.roundedRect(15, 100, 180, 40, 3, 3, 'F');
+            doc.roundedRect(15, 100, 180, 50, 3, 3, 'F');  // Increased height from 40 to 50
             
             doc.setTextColor(...navy);
             doc.setFontSize(12);
@@ -1334,22 +1334,22 @@
             doc.setFontSize(9);
             doc.setFont('helvetica', 'normal');
             doc.setTextColor(...textGray);
-            doc.text(`With ${runwayMonths} months of current runway, you have a ${runwayMonths < 6 ? 'critical' : runwayMonths < 12 ? 'moderate' : 'healthy'} cash position.`, 25, 135);
-            doc.text('The strategies above could potentially extend your runway by 6-10 additional months,', 25, 142);
-            doc.text('giving you breathing room to execute growth initiatives and secure additional funding.', 25, 149);
+            doc.text(`With ${runwayMonths} months of current runway, you have a ${runwayMonths < 6 ? 'critical' : runwayMonths < 12 ? 'moderate' : 'healthy'} cash position.`, 25, 128);
+            doc.text('The strategies above could potentially extend your runway by 6-10 additional months,', 25, 135);
+            doc.text('giving you breathing room to execute growth initiatives and secure additional funding.', 25, 142);
             
-            // Contact Section with clickable CTAs (replace the existing Contact section)
+            // Contact Section - extend to bottom of page
             doc.setFillColor(...navy);
-            doc.rect(0, 150, 210, 120, 'F');
+            doc.rect(0, 160, 210, 137, 'F');  // Extended to bottom of page (297mm - 160mm = 137mm)
             
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(16);
             doc.setFont('helvetica', 'bold');
-            doc.text('Ready to Transform Your Financial Strategy?', 20, 165);
+            doc.text('Ready to Transform Your Financial Strategy?', 20, 175);
             
             doc.setFontSize(11);
             doc.setFont('helvetica', 'normal');
-            doc.text('Choose how you\'d like to get started:', 20, 175);
+            doc.text('Choose how you\'d like to get started:', 20, 185);
             
             // Service options with clickable links
             const services = [
@@ -1370,7 +1370,7 @@
                 }
             ];
             
-            let serviceY = 190;
+            let serviceY = 200;
             services.forEach(service => {
                 doc.setTextColor(...gold);
                 doc.setFontSize(11);
@@ -1386,13 +1386,13 @@
                 doc.setTextColor(200, 200, 255);
                 doc.textWithLink(service.url, 30, serviceY + 12, { url: service.url });
                 
-                serviceY += 20;
+                serviceY += 22;
             });
             
-            // Footer
-            doc.setTextColor(200, 200, 200);
+            // Footer - now part of the navy background
+            doc.setTextColor(150, 150, 150);
             doc.setFontSize(8);
-            doc.text('Ardhi A. Pradhana • Strategic CFO Partnership • ardhipradhana.com', 20, 275);
+            doc.text('Ardhi A. Pradhana • Strategic CFO Partnership • ardhipradhana.com', 20, 280);
             
             // Save PDF
             doc.save(`${companyName.replace(/\s+/g, '-')}-runway-extension-strategy.pdf`);
