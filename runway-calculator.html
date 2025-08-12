@@ -38,7 +38,7 @@
         }
 
         .calculator-container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             background: var(--white);
             border-radius: 20px;
@@ -320,11 +320,10 @@
         }
 
         .levers-grid {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin: 2rem 0;
-            flex-wrap: wrap;
         }
 
         .lever-card {
@@ -335,9 +334,6 @@
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
-            flex: 1;
-            min-width: 280px;
-            max-width: 320px;
         }
 
         .lever-card:hover {
@@ -645,11 +641,11 @@
                 flex-direction: column;
             }
             .levers-grid {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
             
             .lever-card {
-                max-width: none;
+                width: 100%;
             }
 
             .email-inputs {
@@ -804,7 +800,14 @@
                 </div>
             </div>
 
-            <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--navy); font-size: 1.8rem;">
+            <div class="quote-section" style="text-align:center; margin: 2rem 0 2.5rem;">
+                <p style="font-size:1.2rem; color: var(--text-gray); font-style: italic; line-height:1.6; max-width:800px; margin:0 auto;">
+                    “Cash flow is the lifeblood of any business. Understanding your runway is essential to make informed decisions, navigate uncertainty, and sustain growth.”
+                </p>
+                <div style="margin-top:0.5rem; color: var(--navy); font-weight:600;">Common finance principle</div>
+            </div>
+
+            <h3 style="text-align: center; margin: 2rem 0 1.5rem; color: var(--navy); font-size: 1.8rem;">
                 3 Proven Levers to Extend Your Runway
             </h3>
 
@@ -827,27 +830,27 @@
                 </div>
             </div>
 
-            <div class="testimonials fade-in-up">
+            <div class="testimonials fade-in-up" style="justify-content:center;">
                 <div class="testimonial">
                     <div class="testimonial-text">
-                        "This analysis helped us identify $50K in monthly savings and extend our runway by 8 months. Game changer!"
+                        “Companies that actively manage cash flow are significantly more resilient in downturns and better positioned for growth.”
                     </div>
-                    <div class="testimonial-author">Sarah Chen</div>
-                    <div class="testimonial-role">CEO, TechFlow</div>
+                    <div class="testimonial-author">Harvard Business Review</div>
+                    <div class="testimonial-role">On financial resilience</div>
                 </div>
                 <div class="testimonial delay-1">
                     <div class="testimonial-text">
-                        "The revenue acceleration strategies alone increased our MRR by 35% in just 3 months."
+                        “Runway clarity helps leadership make disciplined decisions on hiring, product investment, and fundraising timelines.”
                     </div>
-                    <div class="testimonial-author">Marcus Rodriguez</div>
-                    <div class="testimonial-role">Founder, DataSync</div>
+                    <div class="testimonial-author">McKinsey Insights</div>
+                    <div class="testimonial-role">On cash discipline</div>
                 </div>
                 <div class="testimonial delay-2">
                     <div class="testimonial-text">
-                        "Clear, actionable insights that actually work. Highly recommend for any growing business."
+                        “Cash flow is more important than profit for survival in the short term; profit matters only if you can stay alive.”
                     </div>
-                    <div class="testimonial-author">Emily Watson</div>
-                    <div class="testimonial-role">CFO, GrowthLab</div>
+                    <div class="testimonial-author">Common finance wisdom</div>
+                    <div class="testimonial-role">On business sustainability</div>
                 </div>
             </div>
 
