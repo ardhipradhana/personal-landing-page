@@ -465,6 +465,45 @@
             color: var(--text-gray);
         }
 
+        /* New: Two-quote insights grid */
+        .insights-section {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .insight-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(2, 6, 23, 0.06);
+        }
+
+        .insight-quote {
+            font-style: italic;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .insight-author {
+            margin-top: 0.75rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .insight-role {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        @media (max-width: 768px) {
+            .insights-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .stats-section {
             display: flex;
             justify-content: center;
@@ -800,11 +839,17 @@
                 </div>
             </div>
 
-            <div class="quote-section" style="text-align:center; margin: 2rem 0 2.5rem;">
-                <p style="font-size:1.2rem; color: var(--text-gray); font-style: italic; line-height:1.6; max-width:800px; margin:0 auto;">
-                    “Cash flow is the lifeblood of any business. Understanding your runway is essential to make informed decisions, navigate uncertainty, and sustain growth.”
-                </p>
-                <div style="margin-top:0.5rem; color: var(--navy); font-weight:600;">Common finance principle</div>
+            <!-- Reworked: Two-quote insights grid (replaces stats and testimonials) -->
+            <div class="insights-section fade-in-up">
+                <div class="insight-card">
+                    <div class="insight-quote">“Cash flow is the lifeblood of any business. Understanding your runway is essential to make informed decisions, navigate uncertainty, and sustain growth.”</div>
+                    <div class="insight-author">Common finance principle</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-quote">“Companies that actively manage cash flow are significantly more resilient in downturns and better positioned for growth.”</div>
+                    <div class="insight-author">Harvard Business Review</div>
+                    <div class="insight-role">On financial resilience</div>
+                </div>
             </div>
 
             <h3 style="text-align: center; margin: 2rem 0 1.5rem; color: var(--navy); font-size: 1.8rem;">
@@ -813,45 +858,6 @@
 
             <div class="levers-grid" id="leversGrid">
                 <!-- Levers will be populated by JavaScript -->
-            </div>
-
-            <div class="stats-section fade-in-up">
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <div class="stat-label">Companies Helped</div>
-                </div>
-                <div class="stat-item delay-1">
-                    <span class="stat-number">6.2</span>
-                    <div class="stat-label">Avg Months Extended</div>
-                </div>
-                <div class="stat-item delay-2">
-                    <span class="stat-number">89%</span>
-                    <div class="stat-label">Success Rate</div>
-                </div>
-            </div>
-
-            <div class="testimonials fade-in-up" style="justify-content:center;">
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        “Companies that actively manage cash flow are significantly more resilient in downturns and better positioned for growth.”
-                    </div>
-                    <div class="testimonial-author">Harvard Business Review</div>
-                    <div class="testimonial-role">On financial resilience</div>
-                </div>
-                <div class="testimonial delay-1">
-                    <div class="testimonial-text">
-                        “Runway clarity helps leadership make disciplined decisions on hiring, product investment, and fundraising timelines.”
-                    </div>
-                    <div class="testimonial-author">McKinsey Insights</div>
-                    <div class="testimonial-role">On cash discipline</div>
-                </div>
-                <div class="testimonial delay-2">
-                    <div class="testimonial-text">
-                        “Cash flow is more important than profit for survival in the short term; profit matters only if you can stay alive.”
-                    </div>
-                    <div class="testimonial-author">Common finance wisdom</div>
-                    <div class="testimonial-role">On business sustainability</div>
-                </div>
             </div>
 
             <div class="trust-indicators">
