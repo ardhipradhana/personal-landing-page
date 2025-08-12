@@ -1186,8 +1186,8 @@
             // Company info
             doc.setFontSize(11);
             doc.setFont('helvetica', 'normal');
-            doc.text(`Prepared for: ${companyName}`, 140, 18);
-            doc.text(`Date: ${new Date().toLocaleDateString()}`, 140, 28);
+            doc.text(`Prepared for: ${companyName}`, 155, 18);
+            doc.text(`Date: ${new Date().toLocaleDateString()}`, 155, 28);
             
             // Personal message
             doc.setTextColor(...navy);
@@ -1324,12 +1324,12 @@
             
             // Key Insights Box (replace the existing Key Insights section)
             doc.setFillColor(255, 248, 220);
-            doc.roundedRect(15, 110, 180, 40, 3, 3, 'F');
+            doc.roundedRect(15, 100, 180, 40, 3, 3, 'F');
             
             doc.setTextColor(...navy);
             doc.setFontSize(12);
             doc.setFont('helvetica', 'bold');
-            doc.text('Key Insights for Your Business', 25, 125);
+            doc.text('Key Insights for Your Business', 25, 115);
             
             doc.setFontSize(9);
             doc.setFont('helvetica', 'normal');
@@ -1340,16 +1340,16 @@
             
             // Contact Section with clickable CTAs (replace the existing Contact section)
             doc.setFillColor(...navy);
-            doc.rect(0, 160, 210, 120, 'F');
+            doc.rect(0, 150, 210, 120, 'F');
             
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(16);
             doc.setFont('helvetica', 'bold');
-            doc.text('Ready to Transform Your Financial Strategy?', 20, 175);
+            doc.text('Ready to Transform Your Financial Strategy?', 20, 165);
             
             doc.setFontSize(11);
             doc.setFont('helvetica', 'normal');
-            doc.text('Choose how you\'d like to get started:', 20, 185);
+            doc.text('Choose how you\'d like to get started:', 20, 175);
             
             // Service options with clickable links
             const services = [
@@ -1370,7 +1370,7 @@
                 }
             ];
             
-            let serviceY = 200;
+            let serviceY = 190;
             services.forEach(service => {
                 doc.setTextColor(...gold);
                 doc.setFontSize(11);
