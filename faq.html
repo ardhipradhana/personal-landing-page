@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ • Strategic CFO Partnership – Ardhi A. Pradhana</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="AAP Logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="AAP Logo.png">
+    <link rel="apple-touch-icon" href="AAP Logo.png">
+    <link rel="shortcut icon" href="AAP Logo.png">
+    <style>
+        :root { --navy:#1a2332; --gold:#DAA520; --light-navy:#2c3e50; --light-gray:#f8f9fa; --white:#ffffff; --text-gray:#6c757d; --light-blue-gray:#f1f5f9; --warm-light-gray:#fafafa; --cool-light-gray:#f9fafb; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#2c3e50;overflow-x:hidden}
+        nav{position:fixed;top:0;width:100%;background:rgba(26,35,50,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;transition:all .3s ease;border-bottom:1px solid rgba(218,165,32,.2)}
+        .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 2rem}
+        .nav-links{display:flex;list-style:none;gap:2rem}
+        .nav-links a{color:var(--white);text-decoration:none;font-weight:500;transition:color .3s ease}
+        .nav-links a:hover{color:var(--gold)}
+        .logo-text{color:var(--white);font-weight:800}
+        .logo-image{width:36px;height:36px;object-fit:contain;border-radius:6px}
+        .logo-icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(218,165,32,.12);border:1px solid rgba(218,165,32,.25);border-radius:12px;margin-right:.75rem}
+        .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+        .section{padding:6rem 0;scroll-margin-top:80px}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+        .section-title{font-size:2.5rem;font-weight:800;text-align:center;margin-bottom:.5rem;color:var(--navy)}
+        .section-subtitle{font-size:1.1rem;text-align:center;color:var(--text-gray);max-width:760px;margin:0 auto 2rem}
+        .hero-top{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:8rem 0 4rem}
+        .hero-top h1{font-size:clamp(2.2rem,5vw,3rem);text-align:center;font-weight:900}
+        .hero-top p{color:#cbd5e1;text-align:center;max-width:800px;margin:1rem auto 0}
+        .faq-categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem auto 0}
+        .faq-card{background:#fff;border-radius:16px;padding:1.25rem 1.25rem;border:1px solid #eef2f7}
+        .faq-card h3{font-size:1rem;color:var(--navy);margin-bottom:.25rem}
+        .faq-card p{color:var(--text-gray);font-size:.95rem}
+        .accordion{margin-top:3rem}
+        .qa{background:#fff;border-radius:14px;border:1px solid #eef2f7;margin-bottom:1rem;overflow:hidden}
+        .q{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1rem;cursor:pointer;font-weight:700;color:var(--navy)}
+        .q:hover{background:#f8fafc}
+        .a{display:none;padding:0 1rem 1.25rem;color:var(--text-gray)}
+        .chev{transition:transform .2s ease}
+        .qa.open .a{display:block}
+        .qa.open .chev{transform:rotate(180deg)}
+        .cta{display:flex;justify-content:center;margin:2rem 0}
+        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:1.1rem 2rem;border-radius:12px;text-decoration:none;font-weight:800;background:linear-gradient(135deg,var(--gold),#f7d154);color:var(--navy);box-shadow:0 4px 15px rgba(218,165,32,.3)}
+        .site-footer{background:linear-gradient(135deg,#1a2332 0%,#0f1419 100%);padding:4rem 0 2rem;margin-top:2rem}
+        .footer-content{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
+        .footer-brand h3{color:var(--gold);font-size:1.5rem;margin-bottom:.75rem}
+        .footer-brand p{color:rgba(255,255,255,.7);line-height:1.6}
+        .footer-logo{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+        .footer-nav,.footer-connect{display:flex;flex-direction:column;gap:.5rem}
+        .footer-nav h4,.footer-connect h4{color:var(--gold);margin-bottom:1rem}
+        .footer-nav a,.footer-connect a{color:rgba(255,255,255,.8);text-decoration:none}
+        .footer-bottom{text-align:center;padding-top:2rem}
+        @media(max-width:768px){.section{padding:4rem 0}.footer-content{grid-template-columns:1fr}}
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How quickly can we start seeing results?","acceptedAnswer":{"@type":"Answer","text":"Most clients see actionable insights within the first week and measurable improvements within 30 days."}},
+        {"@type":"Question","name":"How is this different from hiring a full-time CFO?","acceptedAnswer":{"@type":"Answer","text":"You get senior-level expertise without full-time costs, and you benefit from cross-industry frameworks tailored to your business."}},
+        {"@type":"Question","name":"Which types of businesses do you work with?","acceptedAnswer":{"@type":"Answer","text":"SaaS, retail, education, and services from ~$500K to $50M+ revenue. The approach scales to your stage."}},
+        {"@type":"Question","name":"What does the first month look like?","acceptedAnswer":{"@type":"Answer","text":"Week 1: discovery and diagnostics; Week 2–3: quick wins and cash clarity; Week 4: roadmap and KPIs. You’ll have a clear 90-day plan."}},
+        {"@type":"Question","name":"How do we work together day-to-day?","acceptedAnswer":{"@type":"Answer","text":"Weekly strategic sessions, async updates, shared dashboards, and on-call support for key decisions."}}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html#hero" class="logo">
+                <div class="logo-icon"><img src="AAP_Logo_2.png" alt="AAP Logo" class="logo-image"></div>
+                <span class="logo-text">Ardhi A. Pradhana</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="runway-calculator.html" style="background: rgba(218, 165, 32, 0.2); color: var(--gold); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700; border: 2px solid var(--gold);">Runway</a></li>
+                <li><a href="index.html#availability" style="background: var(--gold); color: var(--navy); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700;">Book Now</a></li>
+                <li><a href="index.html#help-with">Approach</a></li>
+                <li><a href="index.html#proven-results">Results</a></li>
+                <li><a href="index.html#insights">Insights</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-top">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Clarity before commitment. Browse the most common questions founders ask before we start working together.</p>
+        </div>
+    </header>
+
+    <main class="section" style="background: var(--cool-light-gray)">
+        <div class="container">
+            <h2 class="section-title">Start Here</h2>
+            <p class="section-subtitle">A quick overview of what to expect when partnering with a Strategic CFO.</p>
+            <div class="faq-categories">
+                <div class="faq-card"><h3>Getting Started</h3><p>First week deliverables, onboarding, and timeline.</p></div>
+                <div class="faq-card"><h3>Scope & Outcomes</h3><p>What’s included and typical results by stage.</p></div>
+                <div class="faq-card"><h3>Engagement & Pricing</h3><p>Formats, cadence, and how we make it ROI-positive.</p></div>
+                <div class="faq-card"><h3>Tools & Models</h3><p>Dashboards, cash runway, and investor readiness.</p></div>
+            </div>
+
+            <div class="accordion" aria-label="FAQ List">
+                <div class="qa"><div class="q" tabindex="0">How quickly can we start seeing results?<span class="chev">⌄</span></div><div class="a">Most clients see actionable insights within the first week and measurable improvements within 30 days. We prioritize 2–3 quick wins in the first month.</div></div>
+                <div class="qa"><div class="q" tabindex="0">What does the first month look like?<span class="chev">⌄</span></div><div class="a">Week 1: discovery and diagnostics. Week 2–3: cash clarity, margin levers, and process fixes. Week 4: 90‑day roadmap and KPI setup.</div></div>
+                <div class="qa"><div class="q" tabindex="0">How is this different from hiring a full-time CFO?<span class="chev">⌄</span></div><div class="a">You get senior-level expertise without full-time overhead. I bring cross‑industry frameworks and implement with your team at a fraction of the cost.</div></div>
+                <div class="qa"><div class="q" tabindex="0">Which types of businesses do you work with?<span class="chev">⌄</span></div><div class="a">SaaS, retail, education, and service businesses. Typical revenue range: ~$500K to $50M+. The approach adapts to your stage and complexity.</div></div>
+                <div class="qa"><div class="q" tabindex="0">Do you work with companies outside Indonesia?<span class="chev">⌄</span></div><div class="a">Yes. I work with international clients remotely and accommodate time zones. Financial principles and models are globally applicable.</div></div>
+                <div class="qa"><div class="q" tabindex="0">What’s included in the Strategic CFO Partnership?<span class="chev">⌄</span></div><div class="a">Weekly strategic sessions, reporting and analysis, cash flow planning, budget/forecast, investor support, and advisory for major decisions.</div></div>
+                <div class="qa"><div class="q" tabindex="0">How do we collaborate day-to-day?<span class="chev">⌄</span></div><div class="a">Weekly sessions, async updates, shared dashboards, and on-call support for critical decisions. I integrate with your existing tools.</div></div>
+                <div class="qa"><div class="q" tabindex="0">How do I know which service is right for me?<span class="chev">⌄</span></div><div class="a">Start with a free Discovery Conversation. We’ll map your goals and constraints, then choose the smallest intervention that creates the biggest change.</div></div>
+                <div class="qa"><div class="q" tabindex="0">What if I’m not satisfied?<span class="chev">⌄</span></div><div class="a">If you’re not satisfied within the first 30 minutes of the first session, you pay nothing. For ongoing work, we can adjust scope or part ways with notice.</div></div>
+            </div>
+
+            <div class="cta">
+                <a href="index.html#availability" class="btn">Book a Discovery Conversation</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon"><img src="AAP_Logo_2.png" alt="AAP Logo" class="logo-image"></div>
+                        <h3>Ardhi A. Pradhana</h3>
+                    </div>
+                    <p>Your Strategic CFO Partner for transforming financial complexity into competitive advantage.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigate</h4>
+                    <a href="index.html#about">About Me</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="runway-calculator.html">Cash Runway Calculator</a>
+                    <a href="index.html#approach">Approach</a>
+                    <a href="index.html#insights">Insights</a>
+                </div>
+                <div class="footer-connect">
+                    <h4>Let's Connect</h4>
+                    <a href="https://calendly.com/ardhipradhana" target="_blank">Book a Session</a>
+                    <a href="mailto:ardhi@aapgrp.com">Send Email</a>
+                    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7313159212807659520" target="_blank">Newsletter</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: rgba(255,255,255,.5); font-size:.9rem">© 2025 Ardhi A. Pradhana • Strategic CFO Partnership</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.q').forEach(function(el){
+            el.addEventListener('click',function(){ el.parentElement.classList.toggle('open'); });
+            el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.parentElement.classList.toggle('open'); }});
+        });
+    </script>
+</body>
+</html>
