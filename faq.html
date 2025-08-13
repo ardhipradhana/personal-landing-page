@@ -18,8 +18,8 @@
         .nav-links a{color:var(--white);text-decoration:none;font-weight:500;transition:color .3s ease}
         .nav-links a:hover{color:var(--gold)}
         .logo-text{color:var(--white);font-weight:800}
-        .logo-image{width:36px;height:36px;object-fit:contain;border-radius:6px}
-        .logo-icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(218,165,32,.12);border:1px solid rgba(218,165,32,.25);border-radius:12px;margin-right:.75rem}
+        .logo-image{width:45px;height:45px;object-fit:contain}
+        .logo-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
         .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
         .section{padding:6rem 0;scroll-margin-top:80px}
         .container{max-width:1200px;margin:0 auto;padding:0 2rem}
@@ -42,16 +42,19 @@
         .qa.open .chev{transform:rotate(180deg)}
         .cta{display:flex;justify-content:center;margin:2rem 0}
         .btn{display:inline-flex;align-items:center;gap:.5rem;padding:1.1rem 2rem;border-radius:12px;text-decoration:none;font-weight:800;background:linear-gradient(135deg,var(--gold),#f7d154);color:var(--navy);box-shadow:0 4px 15px rgba(218,165,32,.3)}
-        .site-footer{background:linear-gradient(135deg,#1a2332 0%,#0f1419 100%);padding:4rem 0 2rem;margin-top:2rem}
-        .footer-content{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
-        .footer-brand h3{color:var(--gold);font-size:1.5rem;margin-bottom:.75rem}
+        .site-footer{background:linear-gradient(135deg,#1a2332 0%,#0f1419 100%);padding:4rem 0 2rem;margin:0;border-top:1px solid rgba(218,165,32,.2)}
+        .footer-content{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;align-items:start;margin-bottom:3rem}
+        .footer-brand h3{color:var(--gold);font-size:1.5rem;font-weight:700;margin-bottom:1rem}
         .footer-brand p{color:rgba(255,255,255,.7);line-height:1.6}
+        .footer-social{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(218,165,32,.1);border-radius:50%;color:var(--gold);text-decoration:none;transition:all .3s ease}
+        .footer-social:hover{background:rgba(218,165,32,.2);transform:translateY(-2px)}
         .footer-logo{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
-        .footer-nav,.footer-connect{display:flex;flex-direction:column;gap:.5rem}
+        .footer-nav,.footer-connect{display:flex;flex-direction:column;gap:.8rem}
         .footer-nav h4,.footer-connect h4{color:var(--gold);margin-bottom:1rem}
         .footer-nav a,.footer-connect a{color:rgba(255,255,255,.8);text-decoration:none}
-        .footer-bottom{text-align:center;padding-top:2rem}
-        @media(max-width:768px){.section{padding:4rem 0}.footer-content{grid-template-columns:1fr}}
+        .footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)}
+         .footer-bottom p{color:rgba(255,255,255,.5);font-size:.9rem;margin:0}
+        @media(max-width:768px){.section{padding:4rem 0}.footer-content{grid-template-columns:1fr;gap:2rem;text-align:center}.site-footer{padding:3rem 0 2rem}.footer-brand p{max-width:100%}}
     </style>
     <script type="application/ld+json">
     {
@@ -75,15 +78,15 @@
                 <span class="logo-text">Ardhi A. Pradhana</span>
             </a>
             <ul class="nav-links">
-                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#services">Services</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="runway-calculator.html" style="background: rgba(218, 165, 32, 0.2); color: var(--gold); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700; border: 2px solid var(--gold);">Runway</a></li>
-                <li><a href="index.html#availability" style="background: var(--gold); color: var(--navy); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700;">Book Now</a></li>
                 <li><a href="index.html#help-with">Approach</a></li>
                 <li><a href="index.html#proven-results">Results</a></li>
                 <li><a href="index.html#insights">Insights</a></li>
+                <li><a href="faq.html">FAQ</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="runway-calculator.html" style="background: rgba(218, 165, 32, 0.2); color: var(--gold); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700; border: 2px solid var(--gold);">Runway</a></li>
+                <li><a href="index.html#availability" style="background: var(--gold); color: var(--navy); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700;">Book Now</a></li>
             </ul>
         </div>
     </nav>
@@ -127,31 +130,51 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Brand Section -->
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <div class="logo-icon"><img src="AAP_Logo_2.png" alt="AAP Logo" class="logo-image"></div>
+                        <div class="logo-icon">
+                            <img src="AAP_Logo_2.png" alt="AAP Logo" class="logo-image">
+                        </div>
                         <h3>Ardhi A. Pradhana</h3>
                     </div>
                     <p>Your Strategic CFO Partner for transforming financial complexity into competitive advantage.</p>
+                    <a href="https://www.linkedin.com/in/ardhipradhana" class="footer-social" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
                 </div>
+                
+                <!-- Navigation -->
                 <div class="footer-nav">
                     <h4>Navigate</h4>
                     <a href="index.html#about">About Me</a>
                     <a href="index.html#services">Services</a>
-                    <a href="faq.html">FAQ</a>
-                    <a href="runway-calculator.html">Cash Runway Calculator</a>
                     <a href="index.html#approach">Approach</a>
                     <a href="index.html#insights">Insights</a>
+                    <a href="faq.html">FAQ</a>
                 </div>
+
+                <div class="footer-connect">
+                    <h4>Tools</h4>
+                    <a href="runway-calculator.html">Cash Runway Calculator</a>
+                    <a href="https://financier.montpro.xyz" target="_blank">MontPro - Financier</a>
+                </div>
+                
+                <!-- Connect -->
                 <div class="footer-connect">
                     <h4>Let's Connect</h4>
                     <a href="https://calendly.com/ardhipradhana" target="_blank">Book a Session</a>
                     <a href="mailto:ardhi@aapgrp.com">Send Email</a>
+                    <a href="https://www.linkedin.com/in/ardhipradhana">Connect on LinkedIn</a>
                     <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7313159212807659520" target="_blank">Newsletter</a>
                 </div>
             </div>
+            
+            <!-- Bottom Bar -->
             <div class="footer-bottom">
-                <p style="color: rgba(255,255,255,.5); font-size:.9rem">© 2025 Ardhi A. Pradhana • Strategic CFO Partnership</p>
+                <p>© 2025 Ardhi A. Pradhana • Strategic CFO Partnership</p>
             </div>
         </div>
     </footer>
