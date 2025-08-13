@@ -450,8 +450,15 @@
 
         .testimonial-author {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
+        }
+
+        .testimonial-author strong,
+        .testimonial-author span {
+            line-height: 1.2; /* Adjust as needed */
+            margin: 0;
+            padding: 0;
         }
 
         .author-avatar {
@@ -2723,15 +2730,15 @@
                 <span class="logo-text">Ardhi A. Pradhana</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="runway-calculator.html" style="background: rgba(218, 165, 32, 0.2); color: var(--gold); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700; border: 2px solid var(--gold);">Runway</a></li>
-                <li><a href="#availability" style="background: var(--gold); color: var(--navy); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700;">Book Now</a></li>
                 <li><a href="#help-with">Approach</a></li>
                 <li><a href="#proven-results">Results</a></li>
                 <li><a href="#insights">Insights</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="runway-calculator.html" style="background: rgba(218, 165, 32, 0.2); color: var(--gold); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700; border: 2px solid var(--gold);">Runway</a></li>
+                <li><a href="#availability" style="background: var(--gold); color: var(--navy); padding: 0.5rem 1rem; border-radius: 25px; font-weight: 700;">Book Now</a></li>
             </ul>
         </div>
     </nav>
@@ -3240,7 +3247,6 @@
                     <div class="quote-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
-                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
                         </svg>
                     </div>
                     <p class="testimonial-text">"Working with Pak Ardhi has been a pleasure. He has helped us optimize our financial operations and provided valuable strategic insights. His expertise and guidance have significantly improved our financial performance and decision-making processes. We highly recommend his services to any company looking to enhance their financial strategy."</p>
@@ -3620,6 +3626,11 @@
                 <div class="faq-item">
                     <h3 class="faq-question">Which types of businesses do you work with?</h3>
                     <p class="faq-answer">SaaS, retail, education, and services from ~$500K to $50M+ revenue. The approach scales to your stage.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you work with companies outside Indonesia?</h3>
+                    <p class="faq-answer">Yes. I work with international clients remotely and accommodate time zones. Financial principles and models are globally applicable.</p>
                 </div>
             </div>
             
