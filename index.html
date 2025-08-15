@@ -121,7 +121,7 @@
 
         .hero-main {
             animation: fadeInUp 0.8s ease-out;
-            margin-top: 3rem;
+            margin-top: 1.5rem;
         }
 
         @keyframes fadeInUp {
@@ -152,7 +152,7 @@
         .hero h1 {
             font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.1;
             letter-spacing: -0.02em;
             max-width: 900px;
@@ -170,7 +170,7 @@
 
         .hero-subtitle {
             font-size: 1.25rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #cbd5e1;
             line-height: 1.6;
             font-weight: 400;
@@ -183,7 +183,7 @@
             display: flex;
             justify-content: center;
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
@@ -211,7 +211,7 @@
             gap: 1.5rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .btn {
@@ -2703,10 +2703,41 @@
                 padding: 1.25rem;
             }
             
-            .plug-in-title, .montpro-title {
-                font-size: 1.8rem;
-            }
+            .plug-in-title,         .montpro-title {
+            font-size: 1.8rem;
         }
+    }
+
+    /* Hero Tools Hover Effects */
+    .tool-btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        background: rgba(218, 165, 32, 0.25) !important;
+        border-color: rgba(218, 165, 32, 0.5) !important;
+    }
+    
+    .tool-btn:nth-child(2):hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+    }
+    
+    .tool-btn:nth-child(3):hover {
+        background: rgba(0, 119, 181, 0.25) !important;
+        border-color: rgba(0, 119, 181, 0.5) !important;
+    }
+
+    @media (max-width: 768px) {
+        .hero-tools {
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        
+        .tool-btn {
+            width: 100% !important;
+            max-width: 250px !important;
+            justify-content: center !important;
+        }
+    }
         
     </style>
 </head>
@@ -2830,18 +2861,34 @@
                 </div>
 
                 <div class="cta-buttons">
-                    <a href="runway-calculator.html" class="btn btn-primary">
-                        Calculate Your Cash Runway
-                        <span class="btn-arrow">→</span>
-                    </a>
-                    <a href="#services" class="btn btn-secondary">
+                    <!-- Primary CTA -->
+                    <a href="#services" class="btn btn-primary" style="margin-bottom: 0.5rem;">
                         Get Your CFO Strategy Call
                         <span class="btn-arrow">→</span>
                     </a>
+                    
+                    <!-- Secondary Tools Section -->
+                    <div style="margin-top: 1rem;">
+                        <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 0.8rem; font-weight: 500;">
+                            Or explore these free tools first:
+                        </p>
+                        <div class="hero-tools" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <a href="runway-calculator.html" class="tool-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(218, 165, 32, 0.15); border: 1px solid rgba(218, 165, 32, 0.3); border-radius: 25px; color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+                                📊 Runway Calculator
+                            </a>
+                            <a href="https://financier.montpro.xyz/generator.html" target="_blank" class="tool-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+                                📄 Statements Generator
+                            </a>
+                            <button onclick="document.getElementById('chatTrigger').click()" class="tool-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(0, 119, 181, 0.15); border: 1px solid rgba(0, 119, 181, 0.3); border-radius: 25px; color: #5dade2; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                                🤖 Ask Monty AI
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- About Section -->
     <section id="about" class="section about">
@@ -2991,10 +3038,18 @@
                 <p class="section-subtitle">See my actual calendar and book a time that works for both of us</p>
                 
                 <div style="background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 2rem; margin-top: 3rem;">
-                    <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
                         <span style="display: inline-block; background: var(--gold); color: var(--navy); padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: 600; margin-bottom: 1rem;">
                             Only 3 Retainer Spots Available for 2025
                         </span>
+                        
+                        <!-- Minimal Progress Bar -->
+                        <div style="max-width: 300px; margin: 0 auto; display: flex; align-items: center; gap: 1rem;">
+                            <div style="flex: 1; height: 6px; background: rgba(218, 165, 32, 0.2); border-radius: 3px; overflow: hidden;">
+                                <div style="height: 100%; background: linear-gradient(90deg, var(--gold), #f7d154); width: 75%; border-radius: 3px; transition: width 2s ease-in-out;"></div>
+                            </div>
+                            <span style="color: var(--text-gray); font-size: 0.85rem; font-weight: 500; white-space: nowrap;">75% filled</span>
+                        </div>
                         <p style="color: var(--text-gray); margin-top: 1rem;">
                             Book your introductory session to discuss how we can transform your financial strategy together.
                         </p>
