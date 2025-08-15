@@ -2708,25 +2708,34 @@
         }
     }
 
-    /* Lead Magnet Bar Hover Effects */
-    .magnet-item:hover {
-        transform: translateY(-5px) !important;
-        box-shadow: 0 10px 25px rgba(26, 35, 50, 0.15) !important;
+    /* Hero Tools Hover Effects */
+    .tool-btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        background: rgba(218, 165, 32, 0.25) !important;
+        border-color: rgba(218, 165, 32, 0.5) !important;
     }
     
-    .magnet-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    .tool-btn:nth-child(2):hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+    }
+    
+    .tool-btn:nth-child(3):hover {
+        background: rgba(0, 119, 181, 0.25) !important;
+        border-color: rgba(0, 119, 181, 0.5) !important;
     }
 
     @media (max-width: 768px) {
-        .magnet-items {
-            grid-template-columns: 1fr !important;
-            gap: 1.5rem !important;
+        .hero-tools {
+            flex-direction: column !important;
+            align-items: center !important;
         }
         
-        .magnet-item {
-            padding: 1.5rem !important;
+        .tool-btn {
+            width: 100% !important;
+            max-width: 250px !important;
+            justify-content: center !important;
         }
     }
         
@@ -2852,50 +2861,34 @@
                 </div>
 
                 <div class="cta-buttons">
-                    <a href="runway-calculator.html" class="btn btn-primary">
-                        Calculate Your Cash Runway
-                        <span class="btn-arrow">→</span>
-                    </a>
-                    <a href="#services" class="btn btn-secondary">
+                    <!-- Primary CTA -->
+                    <a href="#services" class="btn btn-primary" style="margin-bottom: 1.5rem;">
                         Get Your CFO Strategy Call
                         <span class="btn-arrow">→</span>
                     </a>
+                    
+                    <!-- Secondary Tools Section -->
+                    <div style="margin-top: 2rem;">
+                        <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1rem; font-weight: 500;">
+                            Or explore these free tools first:
+                        </p>
+                        <div class="hero-tools" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <a href="runway-calculator.html" class="tool-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(218, 165, 32, 0.15); border: 1px solid rgba(218, 165, 32, 0.3); border-radius: 25px; color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+                                📊 Runway Calculator
+                            </a>
+                            <a href="https://financier.montpro.xyz/generator.html" target="_blank" class="tool-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+                                📄 Statements Generator
+                            </a>
+                            <button onclick="document.getElementById('chatTrigger').click()" class="tool-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(0, 119, 181, 0.15); border: 1px solid rgba(0, 119, 181, 0.3); border-radius: 25px; color: #5dade2; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                                🤖 Ask Monty AI
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lead Magnet Bar -->
-    <section class="lead-magnet-bar" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 3rem 0; border-bottom: 1px solid rgba(26, 35, 50, 0.1);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <h3 style="color: var(--navy); font-size: 1.5rem; margin-bottom: 0.5rem;">Get Started Immediately</h3>
-                <p style="color: var(--text-gray); margin: 0;">Three ways to experience strategic CFO insights right now</p>
-            </div>
-            <div class="magnet-items" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
-                <div class="magnet-item" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(26, 35, 50, 0.1); border-top: 4px solid var(--gold); transition: transform 0.3s ease;">
-                    <div class="magnet-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--gold), #f7d154); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 24px;">📊</div>
-                    <h4 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.1rem;">Cash Runway Calculator</h4>
-                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-bottom: 1.5rem;">See exactly how long your money will last and when you need to act</p>
-                    <a href="runway-calculator.html" class="magnet-btn" style="background: var(--gold); color: var(--navy); padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block;">Calculate Now</a>
-                </div>
-                
-                <div class="magnet-item" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(26, 35, 50, 0.1); border-top: 4px solid var(--navy); transition: transform 0.3s ease;">
-                    <div class="magnet-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--navy), var(--light-navy)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 24px; color: white;">📄</div>
-                    <h4 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.1rem;">Financial Statements Generator</h4>
-                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-bottom: 1.5rem;">Create professional financial reports in minutes, not hours</p>
-                    <a href="https://financier.montpro.xyz/generator.html" target="_blank" class="magnet-btn" style="background: var(--navy); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block;">Generate Now</a>
-                </div>
-                
-                <div class="magnet-item" style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(26, 35, 50, 0.1); border-top: 4px solid #0077B5; transition: transform 0.3s ease;">
-                    <div class="magnet-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #0077B5, #005885); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 24px; color: white;">🤖</div>
-                    <h4 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.1rem;">Ask Monty (AI CFO Assistant)</h4>
-                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-bottom: 1.5rem;">Get instant answers to your financial strategy questions</p>
-                    <button onclick="document.getElementById('chatTrigger').click()" class="magnet-btn" style="background: #0077B5; color: white; padding: 0.8rem 1.5rem; border-radius: 25px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Chat Now</button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- About Section -->
     <section id="about" class="section about">
@@ -3050,24 +3043,12 @@
                             Only 3 Retainer Spots Available for 2025
                         </span>
                         
-                        <!-- Availability Tracker -->
-                        <div class="availability-tracker" style="max-width: 400px; margin: 1rem auto;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                                <div class="spots-remaining" style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <span class="spots-number" style="background: var(--navy); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem;">3</span>
-                                    <span class="spots-text" style="color: var(--text-gray); font-size: 0.9rem; font-weight: 500;">spots remaining</span>
-                                </div>
-                                <span style="color: var(--text-gray); font-size: 0.8rem;">75% filled</span>
+                        <!-- Minimal Progress Bar -->
+                        <div style="max-width: 300px; margin: 0 auto; display: flex; align-items: center; gap: 1rem;">
+                            <div style="flex: 1; height: 6px; background: rgba(218, 165, 32, 0.2); border-radius: 3px; overflow: hidden;">
+                                <div style="height: 100%; background: linear-gradient(90deg, var(--gold), #f7d154); width: 75%; border-radius: 3px; transition: width 2s ease-in-out;"></div>
                             </div>
-                            <div class="availability-progress-bar" style="width: 100%; height: 8px; background: #f1f5f9; border-radius: 4px; overflow: hidden; position: relative;">
-                                <div class="availability-progress-fill" style="height: 100%; background: linear-gradient(90deg, var(--gold), #f7d154); border-radius: 4px; width: 75%; transition: width 2s ease-in-out; position: relative;">
-                                    <div style="position: absolute; top: 0; right: 0; height: 100%; width: 20px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4)); animation: shimmer 2s infinite;"></div>
-                                </div>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-top: 0.3rem; font-size: 0.7rem; color: var(--text-gray);">
-                                <span>Jan 2025</span>
-                                <span>Dec 2025</span>
-                            </div>
+                            <span style="color: var(--text-gray); font-size: 0.85rem; font-weight: 500; white-space: nowrap;">75% filled</span>
                         </div>
                         <p style="color: var(--text-gray); margin-top: 1rem;">
                             Book your introductory session to discuss how we can transform your financial strategy together.
