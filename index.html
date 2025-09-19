@@ -3773,8 +3773,8 @@
             
             try {
                 const webhookUrl = serviceType === 'retainer' ? 
-                    'https://n8n.srv909550.hstgr.cloud/webhook/retainer-quote' : 
-                    'https://n8n.srv909550.hstgr.cloud/webhook/project-quote';
+                    'https://montpro.app.n8n.cloud/webhook/retainer-quote' : 
+                    'https://montpro.app.n8n.cloud/webhook/project-quote';
                     
                 const response = await fetch(webhookUrl, {
                     method: 'POST',
@@ -4685,7 +4685,7 @@
     <script>
     class StrategicCFOChat {
         constructor() {
-            this.webhookUrl = 'https://n8n.srv909550.hstgr.cloud/webhook/strategic-cfo-chatbot';
+            this.webhookUrl = 'https://montpro.app.n8n.cloud/webhook/strategic-cfo-chatbot';
             this.isOpen = false;
             this.isTyping = false;
             
